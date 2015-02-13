@@ -1,6 +1,7 @@
 class Array
 
-  def not_inject(number)
+  def not_inject
+    yield
   end
 
 end

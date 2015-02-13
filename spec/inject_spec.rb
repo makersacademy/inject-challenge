@@ -14,10 +14,18 @@ describe Array do
 
   context 'You don\'t need the inject method!' do
 
-  it 'should be able to add' do
-    array = [1,2,3,4]
-    expect(array.not_inject(0) { |result, element| result + element }).to eq 10
-   end
+  it 'should be able to accept a block' do
+    expect([1].not_inject { "Please print this string" }).to eq "Please print this string"
+  end
+
+
+
+
+
+  # it 'should be able to add' do
+  #   array = [1,2,3,4]
+  #   expect(array.not_inject(0) { |result, element| result + element }).to eq 10
+  #  end
 
   end
 end
