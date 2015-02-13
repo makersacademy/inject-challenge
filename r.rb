@@ -1,0 +1,1 @@
+require './lib/challay.rb'
