@@ -12,7 +12,11 @@ describe Array do
 
 	it 'should have a default argument of zero if no argument is given' do
 		expect([1].my_inject {|x, y| x + y}).to eq(1)
+		puts [].my_inject {|x, y| x + y}
 	end
 
+	it 'should return nil if the array is empty' do
+		expect([].my_inject {|x, y| x + y}). to eq nil
+	end
 	
 end
