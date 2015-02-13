@@ -34,30 +34,30 @@ describe Array do
     end
   end
 
-  context 'with a method' do
+  # context 'with a method' do
 
-    it 'can sum numbers using a symbol' do
-      expect(test.inject(:+)).to eq(10) 
-      expect(test.new_inject(:+)).to eq(10)
-    end
+  #   it 'can sum numbers using a symbol' do
+  #     expect(test.inject(:+)).to eq(10) 
+  #     expect(test.new_inject(:+)).to eq(10)
+  #   end
 
-    it 'can sum numbers using a symbol and argument' do
-      expect(test.inject(3, :+)).to eq(13) 
-      expect(test.new_inject(3, :+)).to eq(13)
-    end
+  #   it 'can sum numbers using a symbol and argument' do
+  #     expect(test.inject(3, :+)).to eq(13) 
+  #     expect(test.new_inject(3, :+)).to eq(13)
+  #   end
 
-    it 'can multiply numbers using a symbol' do
-      expect(test.inject(:*)).to eq(24) 
-      expect(test.new_inject(:*)).to eq(24) 
-    end
+  #   it 'can multiply numbers using a symbol' do
+  #     expect(test.inject(:*)).to eq(24) 
+  #     expect(test.new_inject(:*)).to eq(24) 
+  #   end
 
-    it 'can multiply numbers using a symbol and an argument' do
-      expect(test.inject(1, :*)).to eq(24) 
-      expect(test.new_inject(1, :*)).to eq(24) 
+  #   it 'can multiply numbers using a symbol and an argument' do
+  #     expect(test.inject(1, :*)).to eq(24) 
+  #     expect(test.new_inject(1, :*)).to eq(24) 
 
 
-    end
-  end
+  #   end
+  # end
 
   def test
     @test = [1,2,3,4]
