@@ -57,9 +57,17 @@ describe Array do
 
       describe 'addition and related operations' do
 
-        it 'can sum some numbers including the number passed in an argument' do
+        it 'can sum some numbers including a number passed in the argument' do
           expect([1,2,3,4].diy_inject(1) { |sum, n| sum + n }).to eq 11
           expect([5,6,7,8].diy_inject(5) { |sum, n| sum + n }).to eq 31
+        end
+
+      end
+
+      describe "multipication and related operations" do
+
+        it 'can multiply the product of some numbers by the argument' do
+          expect([2,3,4,5].inject(2) { |product, n| product * n }).to eq 240
         end
 
       end
