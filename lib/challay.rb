@@ -1,7 +1,7 @@
-class Challay < Array
+class Array
 
 
-  def inject(sum=first,method=nil)
+  def my_inject(sum=first,method=nil)
 
     if method == nil && sum != first
       if !block_given?
