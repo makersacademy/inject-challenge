@@ -20,6 +20,14 @@ describe Array do
       end
 
     end
+
+    context "multipication" do
+
+      it "can multiply numbers" do
+        expect([1,2,3,4].diy_inject { |product, n| product * n }).to eq 24 
+      end 
+
+    end
   
   end
 
