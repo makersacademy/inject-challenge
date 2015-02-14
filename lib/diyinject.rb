@@ -1,7 +1,11 @@
 class Array
 
   def diy_inject
-    10
+    output = self.first
+    (self.size - 1).times do |x|
+      output = output + self[x+1]
+    end
+    output
   end
 
 end
