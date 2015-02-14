@@ -43,4 +43,12 @@ describe 'Challay' do
     expect(test.inject(50,:+)).to eq 583
   end
 
+  it 'will take (50) and {|sum, x| sum + x}, and return the cum sum starting with 50' do
+    test << 1
+    test << 2
+    test << 3
+    expect(test.inject(50){|sum, x| sum + x}).to eq 56
+
+  end
+
 end
