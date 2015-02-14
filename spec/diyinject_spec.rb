@@ -6,7 +6,7 @@ describe Array do
 
     context 'without an argument' do
 
-      describe "addition" do
+      describe "addition and related operations" do
 
         it "can sum some numbers" do
           expect([1,2,3,4].diy_inject { |sum, n| sum + n }).to eq 10
@@ -27,7 +27,7 @@ describe Array do
 
       end
 
-      describe "multipication" do
+      describe "multipication and related operations" do
 
         it "can multiply numbers" do
           expect([1,2,3,4].diy_inject { |product, n| product * n }).to eq 24
@@ -47,6 +47,19 @@ describe Array do
 
         it 'can handle exponents correcly' do
           expect([2,3,4].diy_inject   { |product, n| product ** n }).to eq 4096
+        end
+
+      end
+
+    end
+
+    context 'with an argument' do
+
+      describe 'addition and related operations' do
+
+        it 'can sum some numbers including the number passed in an argument' do
+          expect([1,2,3,4].diy_inject(1) { |sum, n| sum + n }).to eq 11
+          expect([5,6,7,8].diy_inject(5) { |sum, n| sum + n }).to eq 31
         end
 
       end

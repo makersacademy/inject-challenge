@@ -1,9 +1,13 @@
 class Array
 
-  def diy_inject
-    memo = self[0]
+  def diy_inject(initial=0)
+    if initial == 0
+      memo = self[0]
+    else
+      memo = initial
+    end
     self.each_with_index do |item, index|
-      if index == 0
+      if index == 0 && initial == 0
         next
       end
       memo = yield memo, item
@@ -11,19 +15,3 @@ class Array
     memo
   end
 end
-
-
-# some of my working (for future reference):
-
-# sum = self[0]
-# then iterations start with the first element ignored
-
-# n   = self[0+1]     2
-# sum = sum + n       3
-
-
-# n   = self[1+1]     3
-# sum = sum + n       6
-
-# n   = self[1+1]     4
-# sum = sum + n       10
