@@ -30,6 +30,15 @@ describe Array do
     expect([1, 2, 3, 4].my_inject{|memo, item| memo + item}).to eq 10
   end
 
+  # it "passes each element of the collection to the method named as symbol" do
+  #   expect([1,2,3,4].my_inject(:injected)).to eq(10)
+  # end
+
+
+  # If you specify a symbol instead, then each element
+  # in the collection will be passed to the 
+  # named method of memo.
+
 end
 
 

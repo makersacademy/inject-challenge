@@ -24,13 +24,17 @@ class Array
     proc.call(2, 2)
   end
 
-  def my_inject(&proc)
+  def my_inject(memo=nil, &proc)
     array = self
     memo ||=array.shift
     array.size.times {memo = proc.call(memo,array.shift)}
     memo
   end
   
+  def injected
+    memo + item
+    
+  end
 
 end
 
