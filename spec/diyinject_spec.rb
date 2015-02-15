@@ -4,7 +4,7 @@ describe Array do
 
   describe "Array#diy_inject" do
 
-    context 'without an argument' do
+    context "without an 'initial' argument" do
 
       describe "addition and related operations" do
 
@@ -47,6 +47,14 @@ describe Array do
 
         it 'can handle exponents correcly' do
           expect([2,3,4].diy_inject   { |product, n| product ** n }).to eq 4096
+        end
+
+      end
+
+      describe "using symbols" do
+
+        it "can perfom addition without a block by passing :+" do
+          expect([5,6,7,8].diy_inject(:+)).to eq 26
         end
 
       end
