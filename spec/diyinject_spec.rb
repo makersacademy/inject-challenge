@@ -57,6 +57,10 @@ describe Array do
           expect([5,6,7,8].diy_inject(:+)).to eq 26
         end
 
+        it "can perfom multipication without a block by passing :*" do
+          expect([1,2,3,4].diy_inject(:*)).to eq 24
+        end
+
       end
 
     end

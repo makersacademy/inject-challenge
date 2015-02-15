@@ -1,9 +1,13 @@
 class Array
 
   def diy_inject(initial=100)
-    
+
     if initial == :+
       return self.diy_inject { |x,y| x + y}
+    end
+
+    if initial == :*
+      return self.diy_inject { |x,y| x * y}
     end
 
     if initial == 0
@@ -24,3 +28,9 @@ class Array
     memo
   end
 end
+
+    # symbols = [:+, :-, :*, :/, :**, :%]
+
+    # if symbols.include? initial
+    #   return self.diy_inject { |x,y| x + y}
+    # end
