@@ -67,7 +67,11 @@ describe Array do
       describe "multipication and related operations" do
 
         it 'can multiply the product of some numbers by the argument' do
-          expect([2,3,4,5].inject(2) { |product, n| product * n }).to eq 240
+          expect([2,3,4,5].diy_inject(2) { |product, n| product * n }).to eq 240
+        end
+
+        it 'should return 0 when the argument is 0' do
+          expect([1,2,3,4,5].diy_inject(0)  { |product, n| product * n }).to eq 0
         end
 
       end

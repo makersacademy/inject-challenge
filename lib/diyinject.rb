@@ -1,11 +1,16 @@
 class Array
 
-  def diy_inject(initial=0)
+  def diy_inject(initial=100)
+    
     if initial == 0
-      memo = self[0]
-    else
-      memo = initial
+      self.unshift(0)
     end
+    
+    if initial == 100
+      initial = 0
+    end
+    
+    memo = self[0]
     self.each_with_index do |item, index|
       if index == 0 && initial == 0
         next
