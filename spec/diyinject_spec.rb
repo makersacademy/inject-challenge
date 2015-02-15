@@ -95,6 +95,25 @@ describe Array do
 
       end
 
+      describe "using symbols" do
+
+        it "can perform addition without a block by passing :+" do
+          expect([1,2,3,4].diy_inject(1, :+)).to eq 11
+        end
+
+        xit "can perform multipication without a block by passing :*" do
+          # expect([1,2,3,4].diy_inject(:*)).to eq 24
+        end
+
+        xit "can perform -, /, ** and % operations by passing symbols" do
+          # expect([100,1,2,3].diy_inject(:-)).to eq 94
+          # expect([100,2,2,5].diy_inject(:/)).to eq 5
+          # expect([2,3,4].diy_inject(:**)).to eq 4096
+          # expect([100, 51, 25, 13].diy_inject(:%)).to eq 11
+        end
+
+      end
+
     end
   
   end
