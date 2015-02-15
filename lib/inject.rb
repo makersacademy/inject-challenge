@@ -1,13 +1,9 @@
 class Array
 
-def inject_alt(start_point = 0, operation = "+", &block)
-    start_point == 0 ? total = self.shift : total = start_point      
-    self.dup.each do|element|
-      yield self.shift, element
-      total = total.public_send operation,element
-    end
+def inject_alt(start_point = 0, &block)
+    copy = self.dup
+    start_point == 0 ? total = copy.shift : total = start_point      
+    copy.each {|element| total = yield(total, element)}
     total
 end
 end
-
-#check which operator is included in block? (--> remove operation arg)
