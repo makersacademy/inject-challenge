@@ -34,9 +34,16 @@ class Array
     sum
   end
 
-  def simple_inject
-
-
+  def simple_inject(init=nil,&block)
+    raise 'no block given' if !block_given?
+    if (self.length != 0)
+      init==nil ? init = 0 : init
+      x = shift
+      init = block.call(init,x)
+      simple_inject(init,&block)
+    else
+      return init
+    end
   end
 
 
