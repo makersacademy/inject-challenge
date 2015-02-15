@@ -1,6 +1,6 @@
-require 'challay'
+require 'array'
 
-describe 'Challay' do
+describe 'Array' do
 
   let(:test) {Array.new}
 
@@ -48,7 +48,8 @@ describe 'Challay' do
     test << 2
     test << 3
     expect(test.my_inject(50){|sum, x| sum + x}).to eq 56
-
   end
+
+
 
 end

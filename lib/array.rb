@@ -31,8 +31,12 @@ class Array
         end
       end
     end
-
     sum
+  end
+
+  def simple_inject
+
+
   end
 
 
