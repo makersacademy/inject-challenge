@@ -28,7 +28,20 @@ describe Array do
 
   it "can add each of the array to memo" do
     expect([1, 2, 3, 4].my_inject{|memo, item| memo + item}).to eq 10
+    expect([1, 2, 3, 4].inject{|memo, item| memo + item}).to eq 10
   end
+
+  it "can add each of the negative value out of the array to memo" do
+    expect([1, -2, 3, -4].my_inject{|memo, item| memo + item}).to eq -2
+    expect([1, -2, 3, -4].inject{|memo, item| memo + item}).to eq -2
+  end
+
+  it "can multiply each of the array to memo" do
+    expect([1, 2, 3, 4].my_inject{|memo, item| memo * item}).to eq 24
+    expect([1, 2, 3, 4].inject{|memo, item| memo * item}).to eq 24
+  end
+
+
 
   # it "passes each element of the collection to the method named as symbol" do
   #   expect([1,2,3,4].my_inject(:injected)).to eq(10)
