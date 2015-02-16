@@ -36,4 +36,14 @@ describe Array do
 		expect(array.inject(:+)).to eq (6)
 	end
 
+	it 'should accept a symbol as an argument' do
+		expect(array.my_inject(:-)).to eq (-4)
+		expect(array.inject(:-)).to eq (-4)
+	end
+
+	xit 'should subtract each number from the previous' do
+		expect(array.my_inject(0){|start,number|start-number}).to eq (-4)
+		expect(array.inject(0){|start,number|start-number}).to eq (-4)
+	end
+
 end

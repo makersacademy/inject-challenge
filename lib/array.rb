@@ -2,9 +2,8 @@ class Array
 
 	def my_inject(arg=0)
 		if arg.is_a? Symbol
-			 if arg == :+
-			 self.my_inject{|start,number|start+number}
-			 end
+			 proc = arg.to_proc
+			 self.my_inject(&proc)
 		else
 			self.each do |item|
 				arg = yield arg , item
