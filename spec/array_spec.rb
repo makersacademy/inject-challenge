@@ -32,8 +32,8 @@ describe Array do
 	end
 
 	it 'should accept a symbol as an argument' do
-
-
+		expect(array.my_inject(:+)).to eq (6)
+		expect(array.inject(:+)).to eq (6)
 	end
 
 end
