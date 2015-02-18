@@ -1,7 +1,8 @@
 class Array
 
 	def update_with(array)
-		each do |element| 
+		
+		self.each do |element| 
 			array = yield array,element
 		end
 		p array
@@ -9,3 +10,5 @@ class Array
 
 
 end
+
+
