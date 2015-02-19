@@ -1,3 +1,6 @@
+BO! TOP SELECTA! NIKZ IN DA HOUSE!
+
+YO YO YO YO
 Inject Challenge (Rubyist Badge)
 ================
 
