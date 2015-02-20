@@ -1,7 +1,7 @@
 Inject Challenge (Rubyist Badge)
 ================
 
-Instructions - LEO FORK FOR THE WIN
+Instructions - LEO FORK FOR THE WIN :fu:
 -------
 
 * Challenge time: Friday, the entire day + the weekend if you need it
