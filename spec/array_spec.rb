@@ -22,10 +22,10 @@ describe Array do
     expect([1, 2, 3, 4, 5].custom_inject { |sum, num| sum - num }).to eq(-13)
   end
 
-  it 'uses inject to subtract elements to make a difference' do
+  it 'uses inject to divide elements to make a quotient' do
     expect([30, 5, 2].inject { |sum, num| sum / num }).to eq 3
   end
-  it 'uses custom_inject to subtract elements to make a difference' do
+  it 'uses custom_inject to divide elements to make a quotient' do
     expect([30, 5, 2].custom_inject { |sum, num| sum / num }).to eq 3
   end
 
@@ -49,5 +49,33 @@ describe Array do
     expect(%w(cat sheep bear).custom_inject do |memo, word|
       memo.length > word.length ? memo : word
     end).to eq 'sheep'
+  end
+
+  it 'uses inject with symbol to add elements together to make a sum' do
+    expect([1, 2, 3, 4, 5].inject(:+)).to eq 15
+  end
+  it 'uses custom_inject with symbol to add elements together to make a sum' do
+    expect([1, 2, 3, 4, 5].custom_inject(:+)).to eq 15
+  end
+
+  it 'uses inject to with symbol multiply elements together…' do
+    expect([1, 2, 3, 4, 5].inject(:*)).to eq 120
+  end
+  it 'uses custom_inject with symbol to multiply elements together…' do
+    expect([1, 2, 3, 4, 5].custom_inject(:*)).to eq 120
+  end
+
+  it 'uses inject with symbol to subtract elements to make a difference' do
+    expect([1, 2, 3, 4, 5].inject(:-)).to eq(-13)
+  end
+  it 'uses custom_inject with symbol to subtract elements…' do
+    expect([1, 2, 3, 4, 5].custom_inject(:-)).to eq(-13)
+  end
+
+  it 'uses inject with symbol to divide elements to make a quotient' do
+    expect([30, 5, 2].inject(:/)).to eq 3
+  end
+  it 'uses custom_inject with symbol to divide elements to make a quotient' do
+    expect([30, 5, 2].custom_inject(:/)).to eq 3
   end
 end
