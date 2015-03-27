@@ -20,5 +20,5 @@ Task
 * Submit pull request with your solution
 
 
-[![Build Status](https://travis-ci.org/makersacademy/inject-challenge.svg?branch=master)](https://travis-ci.org/makersacademy/inject-challenge)
-[![Coverage Status](https://coveralls.io/repos/makersacademy/inject-challenge/badge.png)](https://coveralls.io/r/makersacademy/inject-challenge)
+[![Build Status](https://travis-ci.org/DanBlakeman/inject-challenge.svg)](https://travis-ci.org/DanBlakeman/inject-challenge)
+[![Coverage Status](https://coveralls.io/repos/DanBlakeman/inject-challenge/badge.svg)](https://coveralls.io/r/DanBlakeman/inject-challenge)
