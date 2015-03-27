@@ -22,3 +22,18 @@ Task
 
 [![Build Status](https://travis-ci.org/makersacademy/inject-challenge.svg?branch=master)](https://travis-ci.org/makersacademy/inject-challenge)
 [![Coverage Status](https://coveralls.io/repos/makersacademy/inject-challenge/badge.png)](https://coveralls.io/r/makersacademy/inject-challenge)
+
+My Notes:
+explaining the inject method with addition
+___________________________________
+the first thing I want to do is add the sum with the first element in the array
+(the elements are what is in the array) 
+this inject does not contain a initial value so the first loop adds with 0
+
+the sum is the left over from the previous loop and added to the element.
+___________________________________
+
+How would I write this in code?
+
+I need to remove the first item from the array and add it with the sum.
+the .shift method takes the first item from an array so this could be used.
