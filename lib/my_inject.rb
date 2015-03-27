@@ -1,5 +1,4 @@
 class Array
-
   def my_inject sum = nil, symbol = nil, &block
     if sum.is_a? Symbol
       total = shift
@@ -19,5 +18,4 @@ class Array
       end
     end
   end
-
 end
