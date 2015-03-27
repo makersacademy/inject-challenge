@@ -14,7 +14,7 @@ describe Array do
 
   it 'can add with a starting point' do
     expect(array.inject(10) { |sum, e| sum + e }).to eq 20
-    expect(array.myinject(10) { |sum, e| sum + e }).to eq 20
+    expect(array.my_inject(10) { |sum, e| sum + e }).to eq 20
   end
 
   it 'can times with a starting point' do
