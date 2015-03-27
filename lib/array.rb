@@ -1,8 +1,9 @@
 class Array
-  def gusject
-    sum = first
+  def gusject(initial = false)
+    sum = initial ? initial : first
+    start_value = initial ? 0 : 1
     if block_given?
-      (1...length).each do |index|
+      (start_value...length).each do |index|
         sum = yield(sum, self[index])
       end
     end
