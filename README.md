@@ -1,3 +1,6 @@
+
+
+
 Inject Challenge (Rubyist Badge)
 ================
 
