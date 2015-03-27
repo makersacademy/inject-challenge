@@ -1,26 +1,20 @@
 class Array
   def deflate(*args, &block)
-    return deflate_without_block(*args) unless block_given?
-    deflate_with_block(args.first, block)
+    return deflate_block(args.first, block) if block_given?
+    deflate_no_block(*args)
   end
 
   private
 
-  def deflate_with_block(initial, block)
-    initial.nil? ? start_from_index = 1 : start_from_index = 0
-    total = initial || first
-    self[start_from_index..-1].each do |num|
-      total = block.call(total, num)
-    end
-    total
+  def deflate_block(explicit_initial, block)
+    memo = explicit_initial || shift
+    each { |element| memo = block.call(memo, element) }
+    memo
   end
 
-  def deflate_without_block(initial = nil, sym)
-    initial.nil? ? start_from_index = 1 : start_from_index = 0
-    total = initial || first
-    self[start_from_index..-1].each do |num|
-      total = total.send(sym, num)
-    end
-    total
+  def deflate_no_block(explicit_initial = false, method)
+    memo = explicit_initial || shift
+    each { |element| memo = memo.send(method, element) }
+    memo
   end
 end
