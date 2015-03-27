@@ -1,23 +1,33 @@
-Inject Challenge (Rubyist Badge)
+Inject Challenge
 ================
 
-Instructions
+About
 -------
 
-* Challenge time: Friday, the entire day + the weekend if you need it
-* Feel free to use google, your notes, books, etc but work on your own
-* You must submit a pull request to this repo with your challenge solution by 9am Monday morning
+An afternoon challenge to rewrite Ruby's inject method, using TDD.
 
-Task
+How to contribute?
 -----
 
-* Fill out your learning plan self review for the week: https://github.com/makersacademy/learning_plan
-* Fork this repo
-* Reopen the Array class or subclass it.
-* Rewrite the inject method. Write a test for it first. Don't worry about returning an enumerator, assume a block is always given
-* Name your method differently (that is, not inject() or subclass Array) because rspec uses inject() internally, so the tests will fail with weird messages unless your implementation of inject is perfect.
-* If you would like a challenge, rewrite inject using two approaches: using iterators and using recursion but it’s not required to pass.
-* Submit pull request with your solution
+I'm afraid this is just a little personal challenge to test my progress this week.
+
+However, if you have any comments or advice please feel free to comment.
+
+How to use?
+-----
+
+Download the file in lib and 'require' it into your project.
+
+You can also download the full repo and run 'rake' in the root, if you'd like to run tests.
+
+Future Additions
+-----
+
+I may return to this and implement the same functionality using recursion rather than '.each'! :)
+
+Thanks for reading,
+
+Dan
 
 
 [![Build Status](https://travis-ci.org/DanBlakeman/inject-challenge.svg)](https://travis-ci.org/DanBlakeman/inject-challenge)
