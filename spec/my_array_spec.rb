@@ -79,8 +79,8 @@ describe 'Array' do
     end
 
     it 'can subtract with a starting point and a symbol' do
-      expect([50, 20, 3].inject(5, :-)).to eq 22
-      expect([50, 20, 3].my_inject(5, :-)).to eq 22
+      expect([5, 20, 3].inject(50, :-)).to eq 22
+      expect([5, 20, 3].my_inject(50, :-)).to eq 22
     end
 
     it 'can divide with a starting point and a symbol' do

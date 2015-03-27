@@ -37,10 +37,14 @@ class Array
     if arg.nil?
       my_inject_without_arg(&block)
     else
-      if arg_sym.nil?
-        my_inject_with_arg(arg, &block)
+      if arg.is_a?(Symbol)
+        my_inject_with_symbol(arg, &block)
       else
-        my_inject_with_symbol(arg_sym, &block)
+        if arg && arg_sym
+          my_inject_with_arg_and_symbol(arg, arg_sym, &block)
+        else
+          my_inject_with_arg(arg, &block)
+        end
       end
     end
   end
@@ -61,7 +65,19 @@ class Array
     result
   end
 
-  def my_inject_with_symbol(arg_sym, &block)
-    # case symbol
+  def my_inject_with_symbol(arg_is_sym, &block)
+    result = self.first
+    self[1..-1].each do |value|
+      result = result.send(arg_is_sym, value)
+    end
+    result
+  end
+
+  def my_inject_with_arg_and_symbol(arg, arg_sym)
+    result = arg
+    each do |value|
+      result = result.send(arg_sym, value)
+    end
+    result
   end
 end
