@@ -1,9 +1,9 @@
 class Array
   def gusject
-    sum = 0
+    sum = first
     if block_given?
-      self.each do |el|
-        sum = yield(sum, el)
+      (1...length).each do |index|
+        sum = yield(sum, self[index])
       end
     end
     sum
