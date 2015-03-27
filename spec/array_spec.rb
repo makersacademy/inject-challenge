@@ -32,11 +32,22 @@ describe Array do
   it 'uses inject to concatenate strings' do
     expect(%w(a short sentence).inject do |string, word|
       "#{string} #{word}"
-    end).to eq "a short sentence"
+    end).to eq 'a short sentence'
   end
   it 'uses custom_inject to concatenate strings' do
     expect(%w(a short sentence).custom_inject do |string, word|
       "#{string} #{word}"
-    end).to eq "a short sentence"
+    end).to eq 'a short sentence'
+  end
+
+  it 'uses inject to find longest word in list' do # Ex. from RubyDocs
+    expect(%w(cat sheep bear).inject do |memo, word|
+      memo.length > word.length ? memo : word
+    end).to eq 'sheep'
+  end
+  it 'uses custom_inject to find longest word in list' do # Ex. from RubyDocs
+    expect(%w(cat sheep bear).custom_inject do |memo, word|
+      memo.length > word.length ? memo : word
+    end).to eq 'sheep'
   end
 end
