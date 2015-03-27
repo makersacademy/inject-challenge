@@ -18,5 +18,9 @@ describe Array do
       expect([2, 3, 4].gusject(:+)).to eq 9
       expect([2, 3, 4].gusject(:*)).to eq 24
     end
+
+    it 'can set initial value with symbols' do
+      expect([2, 3, 4].gusject(10, :+)).to eq 19
+    end
   end
 end
