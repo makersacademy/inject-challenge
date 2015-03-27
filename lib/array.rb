@@ -1,42 +1,23 @@
 
 class Array
-  def my_inject(arg = nil, arg_sym = nil, &block)
-    if arg.nil?
-      my_inject_without_arg(&block)
+  def my_inject(arg = nil, arg_sym = nil)
+    arg.nil? || arg.is_a?(Symbol) ? result = self[0] : result = arg
+    if arg.nil? # inject without any args
+      self[1..-1].each { |value| result = yield(result, value) }
+      result
     else
-      if arg.is_a?(Symbol)
-        my_inject_with_symbol(arg)
+      if arg.is_a?(Symbol) # inject with symbol
+        self[1..-1].each { |value| result = result.send(arg, value) }
+        result
       else
-        if arg && arg_sym
-          my_inject_with_arg_and_symbol(arg, arg_sym, &block)
-        else
-          my_inject_with_arg(arg, &block)
+        if arg && arg_sym # inject with arg and symbol
+          each { |value| result = result.send(arg_sym, value) }
+          result
+        else # inject with arg starting point
+          each { |value| result = yield(result, value) }
+          result
         end
       end
     end
-  end
-
-  def my_inject_with_arg(arg)
-    result = arg
-    each { |value| result = yield(result, value) }
-    result
-  end
-
-  def my_inject_without_arg
-    result = self[0]
-    self[1..-1].each { |value| result = yield(result, value) }
-    result
-  end
-
-  def my_inject_with_symbol(arg_is_sym)
-    result = self[0]
-    self[1..-1].each { |value| result = result.send(arg_is_sym, value) }
-    result
-  end
-
-  def my_inject_with_arg_and_symbol(arg, arg_sym)
-    result = arg
-    each { |value| result = result.send(arg_sym, value) }
-    result
   end
 end
