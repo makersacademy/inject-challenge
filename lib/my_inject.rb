@@ -29,4 +29,3 @@ class Array
     accumulator
   end
 end
-puts [1, 4, 5].my_inject(:+)
