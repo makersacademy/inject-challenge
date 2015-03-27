@@ -28,4 +28,15 @@ describe Array do
   it 'uses custom_inject to subtract elements to make a difference' do
     expect([30, 5, 2].custom_inject { |sum, num| sum / num }).to eq 3
   end
+
+  it 'uses inject to concatenate strings' do
+    expect(%w(a short sentence).inject do |string, word|
+      "#{string} #{word}"
+    end).to eq "a short sentence"
+  end
+  it 'uses custom_inject to concatenate strings' do
+    expect(%w(a short sentence).custom_inject do |string, word|
+      "#{string} #{word}"
+    end).to eq "a short sentence"
+  end
 end
