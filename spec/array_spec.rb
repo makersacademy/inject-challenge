@@ -33,5 +33,12 @@ describe Array do
     expect([1, 4, 5].inject(2, :*)).to eq 40
     expect([1, 4, 5].my_inject(2, :*)).to eq 40
   end
-
+  it 'can recreate map when start is an array' do
+    expect([1, 4, 5].inject([]) do |array, num|
+      array << num * 2
+    end).to eq [2, 8, 10]
+    expect([1, 4, 5].my_inject([]) do |array, num|
+      array << num * 2
+    end).to eq [2, 8, 10]
+  end
 end
