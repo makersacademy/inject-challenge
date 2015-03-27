@@ -1,6 +1,6 @@
-require 'my_inject'
+require 'my_array'
 
-describe 'my_inject' do
+describe 'Array' do
   it 'can add' do
     expect([1, 2, 3].inject { |sum, n| sum + n }).to eq 6
     expect([1, 2, 3].my_inject { |sum, n| sum + n }).to eq 6
@@ -47,8 +47,8 @@ describe 'my_inject' do
   end
 
   it 'can multiply with a symbol' do
-    expect([1, 2, 3].inject(:*)).to eq 6
-    expect([1, 2, 3].my_inject(:*)).to eq 6
+    expect([2, 5, 10].inject(:*)).to eq 100
+    expect([2, 5, 10].my_inject(:*)).to eq 100
   end
 
   it 'can subtract with a symbol' do
