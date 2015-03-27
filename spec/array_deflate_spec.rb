@@ -29,5 +29,9 @@ describe Array do
 
   it 'can take a symbol and apply that to its contents' do
     expect([1, 2, 3].deflate :+).to eq(6)
+
+    expect([1, 2, 3].deflate :*).to eq(6)
+
+    expect([1, 2, 3].deflate :-).to eq(-4)
   end
 end

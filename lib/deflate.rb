@@ -18,10 +18,10 @@ class Array
     total
   end
 
-  def deflate_without_block(_sym)
+  def deflate_without_block(sym)
     total = first
     self[1..-1].each do |num|
-      total *= num
+      total = total.send(sym, num)
     end
     total
   end
