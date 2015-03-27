@@ -1,0 +1,3 @@
+class MyArray < Array
+
+end
