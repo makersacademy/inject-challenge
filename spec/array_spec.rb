@@ -10,8 +10,13 @@ describe Array do
       expect([2, 3, 4].gusject { |sum, el| sum * el }).to eq 24
     end
 
-    it 'it allows for the initial value to be set' do
+    it 'allows for the initial value to be set' do
       expect([2, 3, 4].gusject(10) { |sum, el| sum + el }).to eq 19
+    end
+
+    it 'accepts symbols instead of a block' do
+      expect([2, 3, 4].gusject(:+)).to eq 9
+      expect([2, 3, 4].gusject(:*)).to eq 24
     end
   end
 end
