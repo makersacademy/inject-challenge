@@ -34,4 +34,22 @@ describe Array do
 
     expect([1, 2, 3].deflate :-).to eq(-4)
   end
+
+  it 'can take a symbol and starting number' do
+    expect([1, 2, 3].deflate(10, :+)).to eq(16)
+  end
+
+  it 'can find the longest word' do
+    longest = %w( cat sheep bear ).deflate do |memo, word|
+      memo.length > word.length ? memo : word
+    end
+    expect(longest).to eq 'sheep'
+  end
+
+  it 'can be used for conctatonation' do
+    concatonated = %w( words to be concatonated).deflate do |final, word|
+      final += word
+    end
+    expect(concatonated).to eq 'wordstobeconcatonated'
+  end
 end

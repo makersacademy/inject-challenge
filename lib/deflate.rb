@@ -1,26 +1,24 @@
 class Array
-  def deflate(arg = nil, &block)
-    if block_given?
-      deflate_with_block(arg, block)
-    else
-      deflate_without_block(arg)
-    end
+  def deflate(*args, &block)
+    return deflate_without_block(*args) unless block_given?
+    deflate_with_block(args.first, block)
   end
 
   private
 
-  def deflate_with_block(number_to_begin_with, block)
-    number_to_begin_with.nil? ? start_from_index = 1 : start_from_index = 0
-    total = number_to_begin_with || first
+  def deflate_with_block(initial, block)
+    initial.nil? ? start_from_index = 1 : start_from_index = 0
+    total = initial || first
     self[start_from_index..-1].each do |num|
       total = block.call(total, num)
     end
     total
   end
 
-  def deflate_without_block(sym)
-    total = first
-    self[1..-1].each do |num|
+  def deflate_without_block(initial = nil, sym)
+    initial.nil? ? start_from_index = 1 : start_from_index = 0
+    total = initial || first
+    self[start_from_index..-1].each do |num|
       total = total.send(sym, num)
     end
     total
