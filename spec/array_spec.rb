@@ -13,4 +13,25 @@ describe Array do
     expect([1, 4, 5].inject(3) { |sum, num| sum + num }).to eq 13
     expect([1, 4, 5].my_inject(3) { |sum, num| sum + num }).to eq 13
   end
+  it 'takes block to multiply numbers in an array with a start number' do
+    expect([1, 4, 5].inject(3) { |sum, num| sum * num }).to eq 60
+    expect([1, 4, 5].my_inject(3) { |sum, num| sum * num }).to eq 60
+  end
+  it 'takes symbol to add numbers in an array' do
+    expect([1, 4, 5].inject(:+)).to eq 10
+    expect([1, 4, 5].my_inject(:+)).to eq 10
+  end
+  it 'takes symbol to multiply numbers in an array' do
+    expect([1, 4, 5].inject(:*)).to eq 20
+    expect([1, 4, 5].my_inject(:*)).to eq 20
+  end
+  it 'takes symbol to add numbers in an array with starting number' do
+    expect([1, 4, 5].inject(5, :+)).to eq 15
+    expect([1, 4, 5].my_inject(5, :+)).to eq 15
+  end
+  it 'takes symbol to multiply numbers in an array with starting number' do
+    expect([1, 4, 5].inject(2, :*)).to eq 40
+    expect([1, 4, 5].my_inject(2, :*)).to eq 40
+  end
+
 end
