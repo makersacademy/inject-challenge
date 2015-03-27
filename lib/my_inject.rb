@@ -13,9 +13,8 @@ class Array
 
   def start_and_accumulator(args)
     start = 1
-    if args[0].nil? || args[0].is_a?(Symbol)
-      accumulator = self[0]
-    else
+    accumulator = self[0]
+    unless args[0].nil? || args[0].is_a?(Symbol)
       start = 0
       accumulator = args[0]
     end

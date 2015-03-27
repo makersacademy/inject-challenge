@@ -1,7 +1,7 @@
 require 'my_inject_rec'
 
 describe Array do
-  context 'recursive method' do
+  context 'recursive #inject' do
     it 'takes block to add numbers in an array' do
       expect([1, 4, 5].inject { |sum, num| sum + num }).to eq 10
       expect([1, 4, 5].my_inject_rec { |sum, num| sum + num }).to eq 10
@@ -13,6 +13,10 @@ describe Array do
     it 'takes block to multiply numbers in an array' do
       expect([1, 4, 5].inject { |sum, num| sum * num }).to eq 20
       expect([1, 4, 5].my_inject_rec { |sum, num| sum * num }).to eq 20
+    end
+    it 'takes block to divide numbers in an array' do
+      expect([12, 2, 2].inject { |sum, num| sum / num }).to eq 3
+      expect([12, 2, 2].my_inject_rec { |sum, num| sum / num }).to eq 3
     end
     it 'takes block to add numbers in an array with a start number' do
       expect([1, 4, 5].inject(3) { |sum, num| sum + num }).to eq 13
