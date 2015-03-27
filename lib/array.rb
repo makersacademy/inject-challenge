@@ -1,36 +1,3 @@
-# class Array
-#   def my_inject(arg = nil, &block)
-#     if arg.nil?
-#       my_inject_without_arg &block
-#     else
-#       if arg.is_a? Symbol
-#         my_inject_with_symbol symbol, &block
-#       else
-#         my_inject_with_arg arg, &block
-#       end
-#     end
-#   end
-#
-#   def my_inject_with_arg arg, &block
-#     result = arg
-#     each do |value|
-#       result = yield(result, value)
-#     end
-#     result
-#   end
-#
-#   def my_inject_without_arg &block
-#     result = self.first
-#     self[1..-1].each do |value|
-#       result = yield(result, value)
-#     end
-#     result
-#   end
-#
-#   def my_inject_with_symbol symbol, &block
-#     # case symbol
-#   end
-# end
 
 class Array
   def my_inject(arg = nil, arg_sym = nil, &block)
@@ -38,7 +5,7 @@ class Array
       my_inject_without_arg(&block)
     else
       if arg.is_a?(Symbol)
-        my_inject_with_symbol(arg, &block)
+        my_inject_with_symbol(arg)
       else
         if arg && arg_sym
           my_inject_with_arg_and_symbol(arg, arg_sym, &block)
@@ -51,33 +18,25 @@ class Array
 
   def my_inject_with_arg(arg)
     result = arg
-    each do |value|
-      result = yield(result, value)
-    end
+    each { |value| result = yield(result, value) }
     result
   end
 
   def my_inject_without_arg
-    result = self.first
-    self[1..-1].each do |value|
-      result = yield(result, value)
-    end
+    result = self[0]
+    self[1..-1].each { |value| result = yield(result, value) }
     result
   end
 
-  def my_inject_with_symbol(arg_is_sym, &block)
-    result = self.first
-    self[1..-1].each do |value|
-      result = result.send(arg_is_sym, value)
-    end
+  def my_inject_with_symbol(arg_is_sym)
+    result = self[0]
+    self[1..-1].each { |value| result = result.send(arg_is_sym, value) }
     result
   end
 
   def my_inject_with_arg_and_symbol(arg, arg_sym)
     result = arg
-    each do |value|
-      result = result.send(arg_sym, value)
-    end
+    each { |value| result = result.send(arg_sym, value) }
     result
   end
 end
