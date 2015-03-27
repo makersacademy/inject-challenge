@@ -23,9 +23,9 @@ class Array
   end
 
   def run_symbol(start, accumulator, symbol)
-    (start...length).each do |num|
-      accumulator = accumulator.send(symbol, self[num])
-    end
+    accumulator = accumulator.send(symbol, self[start])
+    start += 1
+    run_symbol(start, accumulator, symbol) unless start == length - 1
     accumulator
   end
 end
