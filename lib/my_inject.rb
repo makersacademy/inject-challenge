@@ -1,29 +1,28 @@
 class Array
-  def my_inject(start_or_sym = nil, symbol = nil)
-    if start_or_sym.nil?
-      accumulator = self[0]
-      drop(1).each { |element| accumulator = yield(accumulator, element) }
-      accumulator
+  def my_inject(arg1 = nil, symbol = nil)
+    arg1.nil? || arg1.is_a?(Symbol) ? memo = self[0] : memo = arg1
+    if arg1.nil?
+      drop(1).each { |element| memo = yield(memo, element) }
+      memo
     else
-      if start_or_sym.class.name == "Symbol"
-        accumulator = self[0]
-        drop(1).each do |element|
-          accumulator = accumulator.send(start_or_sym, element)
-        end
-        accumulator
+      if arg1.is_a?(Symbol)
+        symbol_injector(arg1, memo)
       else
-        if start_or_sym && symbol
-          accumulator = start_or_sym
-          each { |element| accumulator = accumulator.send(symbol, element) }
-          accumulator
-        elsif start_or_sym.class.name != "Symbol"
-          accumulator = start_or_sym
-          each { |element| accumulator = yield(accumulator, element) }
-          accumulator
-        else
-          fail 'This should not have happened!'
+        if arg1 && symbol
+          each { |element| memo = memo.send(symbol, element) }
+          memo
+        elsif arg1.is_a?(Fixnum)
+          each { |element| memo = yield(memo, element) }
+          memo
         end
       end
     end
+  end
+
+  private
+
+  def symbol_injector(symbol, memo)
+    drop(1).each { |element| memo = memo.send(symbol, element) }
+    memo
   end
 end
