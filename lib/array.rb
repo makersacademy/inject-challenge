@@ -28,19 +28,27 @@ class Array
 
   def my_inject(initial=nil, symbol=nil)
 
-    return self.my_inject {|memo,element| memo.send(initial,element )} if initial.class == Symbol
-     # .send() invokes the method identified by symbol, passing it any arguments specified.
-    return self.my_inject(initial) {|memo,element| memo.send(symbol, element)} if symbol.class == Symbol
+    if initial.class == Symbol
+      return self.my_inject {|memory,element| memory.send(initial,element )}
+    end
+     # .send() invokes the method identified by symbol,
+     # passing it any arguments specified.
+    if symbol.class == Symbol
+      return self.my_inject(initial) {|memory,element| memory.send(symbol, element)}
+    end
 
-    self.unshift(initial) if initial != nil
-      # The unshift() method adds one or more elements to the
-      # beginning of an array and returns the new length of the array.
-    memo = self[0]
-    self[1..-1].each { |item| memo = yield memo, item }
-      # The each {} calls the given block once for each element in self,
+    if initial != nil
+      self.unshift(initial)
+      # .unshift() adds one or more elements to the beginning
+      # of an array and returns the new length of the array.
+    end
+
+    memory = self[0]
+    self[1..-1].each { |item| memory = yield memory, item }
+      # .each {} calls the given block once for each element in self,
       # passing that element as a parameter.
 
       # yield runs the given block passing it the memory and the items 1 by 1
-    memo
+    memory
   end
 end
