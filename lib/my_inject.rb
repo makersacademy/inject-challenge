@@ -11,18 +11,21 @@
 
 class Array
   def my_inject(starting_point = nil, _symbol = nil, _block = nil)
-    starting_point.nil? ? accumulator = 0 : accumulator = starting_point
-    # repeat = length + 1 # Arrrrg, how do I make it skip the first item!
-    each { |element| accumulator = yield(accumulator, element) }
+    starting_point.nil? ? accumulator = self[0] : accumulator = starting_point
+    if starting_point.nil?
+      drop(1).each { |element| accumulator = yield(accumulator, element) }
+    else
+      each { |element| accumulator = yield(accumulator, element) }
+    end
     accumulator
   end
 end
 
 # For running in sublime
 
-# array = [1, 2, 3]
+array = [1, 2, 3]
 # p array.inject { |acc, element| acc + element }
 # p array.my_inject { p "should be repeated 3 times" }
-# p array.my_inject { |acc, element| acc + element }
+p array.my_inject { |acc, element| acc + element }
 # { |acc, element| acc + element }
 #
