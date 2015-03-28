@@ -1,14 +1,14 @@
 class Array
-  def my_inject &code
+  def my_inject(start = nil, &code)
     code = Proc.new
-    memo = 0
-    self.count.times do |n|
+    start == nil ? memo = 0 : memo = start
+      self.count.times do |n|
       element = self.at(n)
       memo += element
       puts "at this iteration memo is #{memo}, and element is #{element}."
     end
-  return memo
+    return memo
   end
 end
 
-# [2, 4, 6].my_inject { |memo, element| memo + element }
+# [2, 4, 6].my_inject(5) { |memo, element| memo + element }

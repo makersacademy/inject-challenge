@@ -10,7 +10,7 @@ describe Array do
     expect([1, 2, 3].inject { |memo, element| memo * element }).to eq 6
   end
 
-  xit 'can add with a starting point' do
+  it 'can add with a starting point' do
     expect([1, 2, 3].inject(10) { |memo, element| memo + element }).to eq 16
   end
 
