@@ -21,4 +21,4 @@ Task
 
 
 [![Build Status](https://travis-ci.org/RBGeomaticsRob/inject-challenge.svg)](https://travis-ci.org/RBGeomaticsRob/inject-challenge)
-[![Coverage Status](https://coveralls.io/repos/makersacademy/inject-challenge/badge.png)](https://coveralls.io/r/makersacademy/inject-challenge)
+[![Coverage Status](https://coveralls.io/repos/RBGeomaticsRob/inject-challenge/badge.svg?branch=master)](https://coveralls.io/r/RBGeomaticsRob/inject-challenge?branch=master)
