@@ -43,3 +43,6 @@ Style/TrailingBlankLines:
 
 Metrics/LineLength:
   Max: 99
+
+Metrics/MethodLength:
+  Enabled: false
