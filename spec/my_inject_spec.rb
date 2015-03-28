@@ -34,6 +34,22 @@ describe Array do
 		expect([1,2,3].my_inject(0, :-)).to eq(-6)
 	end
 
+	it "can times without an initial value" do
+		expect([1,2,3].my_inject{|accumulator, element| accumulator + element}).to eq(6)
+	end
+
+	it "can times with an initial value" do
+		expect([1,2,3].my_inject(20){|accumulator, element| accumulator * element}).to eq(120)
+	end
+
+	it "can times with a symbol and without an initial value" do
+		expect([1,2,3].my_inject(:*)).to eq(6)
+	end
+
+	it "can times with a symbol and an initial value" do
+		expect([1,2,3].my_inject(20, :*)).to eq(120)
+	end
+
 	it "raises an error if the operation provided is not a symbol" do
 		expect{[1,2,3].my_inject(0, '+')}.to raise_error(ArgumentError, "The operation provided must be a symbol")
 	end
