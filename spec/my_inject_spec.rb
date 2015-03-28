@@ -8,7 +8,7 @@ describe Array do
 
   it 'can times' do
     expect([1, 2, 3].inject { |memo, element| memo * element }).to eq 6
-    # expect([1, 2, 3].my_inject { |memo, element| memo * element }).to eq 6
+    expect([1, 2, 3].my_inject { |memo, element| memo * element }).to eq 6
   end
 
   it 'can add with a starting point' do
