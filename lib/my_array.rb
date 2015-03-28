@@ -3,16 +3,48 @@ class MyArray < Array
     @array = array
   end
 
-  def inject(arg1 = 0, arg2 = nil)
-    memo = arg1
+  def inject(arg1 = nil, arg2 = nil, &block)
     if arg1.is_a? Symbol
-      memo = 0
-      @array.each { |value| memo = memo.send(arg1, value) }
+      return inject_symbol(arg1)
     elsif arg2.is_a? Symbol
-      @array.each { |value| memo = memo.send(arg2, value) }
+      return inject_symbol_with_initial(arg1, arg2)
+    elsif arg1.nil?
+      return inject_block(&block)
     else
-      @array.each { |value| memo = yield(memo, value) }
+      return inject_block_with_initial(arg1, &block)
     end
+  end
+
+  private
+
+  attr_reader :array
+
+  def array_shifted!
+    array.drop(1)
+  end
+
+  def inject_symbol(arg1)
+    memo = array.first
+    array_shifted!.each { |value| memo = memo.send(arg1, value) }
+    memo
+  end
+
+  def inject_symbol_with_initial(arg1, arg2)
+    memo = arg1
+    array.each { |value| memo = memo.send(arg2, value) }
+    memo
+  end
+
+  def inject_block(&block)
+    memo = array.first
+    array_shifted!.each { |value| memo = block.call(memo, value) }
+    memo
+  end
+
+  def inject_block_with_initial(arg1, &block)
+    memo = arg1
+    array.each { |value| memo = block.call(memo, value) }
     memo
   end
 end
+

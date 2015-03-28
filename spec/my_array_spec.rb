@@ -23,4 +23,17 @@ describe MyArray do
     expect(subject.inject(5, :*)).to eq 600
   end
 
+  let(:string_array) { %w(A b C) }
+  let(:string_subject) { described_class.new(string_array) }
+
+  it 'can accept string values in the array with a symbol' do
+    expect(string_array.inject(:+)).to eq "AbC"
+    expect(string_subject.inject(:+)).to eq "AbC"
+  end
+
+  it 'can accept string values in the array with a block' do
+    expect(string_array.inject { |sum, item| sum += item }).to eq "AbC"
+    expect(string_subject.inject { |sum, item| sum += item }).to eq "AbC"
+  end
+
 end
