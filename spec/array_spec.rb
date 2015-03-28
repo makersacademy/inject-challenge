@@ -94,16 +94,16 @@ describe Array do
   end
 
   it 'uses inject with initial value to subtract elements…' do
-    expect([1, 2, 3, 4, 5].inject(10) { |sum, num| sum - num }).to eq(-3)
+    expect([1, 2, 3, 4, 5].inject(10) { |sum, num| sum - num }).to eq(-5)
   end
   it 'uses custom_inject with initial value to subtract elements…' do
-    expect([1, 2, 3, 4, 5].custom_inject(10) { |sum, num| sum - num }).to eq(-3)
+    expect([1, 2, 3, 4, 5].custom_inject(10) { |sum, num| sum - num }).to eq(-5)
   end
 
   it 'uses inject with initial value to divide elements to make a quotient' do
-    expect([30, 5, 2].inject(900) { |sum, num| sum / num }).to eq 3
+    expect([30, 5, 2].inject(300) { |sum, num| sum / num }).to eq 1
   end
   it 'uses custom_inject with initial value to divide elements…' do
-    expect([30, 5, 2].custom_inject(900) { |sum, num| sum / num }).to eq 3
+    expect([30, 5, 2].custom_inject(300) { |sum, num| sum / num }).to eq 1
   end
 end
