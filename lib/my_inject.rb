@@ -1,60 +1,28 @@
-# Our method should take an argument and a block. (and a symbol?)
+# Here is how to make acc, element pass into the yield thing:
+# yield(acc, element)
+# Need to have local variables to do that though
 
-# { p "should be 3 times" } - possibly use self?
+# Arguments are starting point, symbol, block
+# If symbol, don't run code from block. If no starting point, default to first
+# item in array.
 
-# We want to say:
-# - Take the first bit of the block, and take the first item of that
-# - Make that the accumulator. Make the second item the element
-# - The accumulator starts either as the default value, or as
-# the beginning of the block.
-# - The accumulator and element are added, and then the accumulator
-# stores the result.
-# - This is fed into the next accumulator run.
-
-# self[index] will return the element. So we need to store the accumulator
-# somewhere
-
-# Here is how to make acc, element pass into the yield thing. Do:
-# yield(acc, element) -> Need to have local variables to do that
-# though
-
-# array = [1, 2, 3, 4]
-# class Array
-#   def for_each_but_not_all(range)
-#     range.each do |i|
-#       yield self[i]
-#     end
-#   end
-# end
-
-# array.for_each_but_not_all(0..3) { |x| puts x }
+# want the accumulator to loop through the items in the array, using
+# instructions provided by the block.
 
 class Array
-  def my_inject(_argument = nil)
-    acc = 0
-    length.times do |index|
-      element = self[index]
-      acc += element
-      p 'Here comes acc'
-      p acc
-      # yield acc, element
-    end
-    acc
-    # length.times do |index, accumulator|
-    #   accumulator = 0 if accumulator.nil?
-    #   element = self[index]
-    #   p element
-    #   accumulator += element
-    #   p accumulator
-    # end
-    # puts length.times { yield }
-    # length.times { yield(acc, element) }
+  def my_inject(starting_point = nil, _symbol = nil, _block = nil)
+    starting_point.nil? ? accumulator = 0 : accumulator = starting_point
+    # repeat = length + 1 # Arrrrg, how do I make it skip the first item!
+    each { |element| accumulator = yield(accumulator, element) }
+    accumulator
   end
 end
 
+# For running in sublime
+
 # array = [1, 2, 3]
 # p array.inject { |acc, element| acc + element }
-# p array.my_inject # { p "should be repeated 4 times" }
+# p array.my_inject { p "should be repeated 3 times" }
 # p array.my_inject { |acc, element| acc + element }
 # { |acc, element| acc + element }
 #
