@@ -71,6 +71,26 @@ describe Array do
 	end
 end
 
+#Other pending tests
+
 	# it "raises an error if both an operation and symbol are provided" do
-	# 	expect([1,2,3].my_inject(0, :+){ |accumulator, element| accumulator + element }).to raise_error(ArgumentError, "Please provide either an operation symbol or a block, not both")
+	# 	expect([1,2,3].my_inject(0, :+){|accumulator, element| accumulator + element}).to raise_error(ArgumentError, "Please provide either an operation symbol or a block, not both")
 	# end
+
+		# it "can convert an array of arrays into a hash" do
+	# 	hash = [[:X1, 'Y1'], [:X2, 'Y2']].inject({}) do |result, element| end
+	# 	result[element.first] = element.last
+	# 	result
+	# end
+
+# 	xit "can convert an array of arrays into a hash" do
+# hash = [[:X1, 'Y1'], [:X2, 'Y2']].my_inject({}) do |result, element| end
+# result[element.first] = element.last
+# result
+# end
+
+# xit "can build an array" do
+# array = [1,2,3,4].inject([]) do |result, element| end
+# result << element.to_s if element % 2 == 0
+# result
+# end
