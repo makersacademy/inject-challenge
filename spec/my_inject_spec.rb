@@ -28,6 +28,6 @@ describe Array do
 
   it 'can times with a symbol' do
     expect([1, 2, 3].inject(:*)).to eq 6
-    # expect([1, 2, 3].my_inject(:*)).to eq 6
+    expect([6, 7, 2].my_inject(:*)).to eq 84
   end
 end
