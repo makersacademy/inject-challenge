@@ -35,7 +35,7 @@ describe Array do
 	end
 
 	it "can times without an initial value" do
-		expect([1,2,3].my_inject{|accumulator, element| accumulator + element}).to eq(6)
+		expect([1,2,3].my_inject{|accumulator, element| accumulator * element}).to eq(6)
 	end
 
 	it "can times with an initial value" do
@@ -48,6 +48,22 @@ describe Array do
 
 	it "can times with a symbol and an initial value" do
 		expect([1,2,3].my_inject(20, :*)).to eq(120)
+	end
+
+	it "can divide without an initial value" do
+		expect([4,2].my_inject{|accumulator, element| accumulator / element}).to eq(2)
+	end
+
+	it "can divide with an initial value" do
+		expect([4,2].my_inject(16){|accumulator, element| accumulator / element}).to eq(2)
+	end
+
+	it "can divide with a symbol and without an initial value" do
+		expect([4,2].my_inject(:/)).to eq(2)
+	end
+
+	it "can divide with a symbol and an initial value" do
+		expect([4,2].my_inject(16, :/)).to eq(2)
 	end
 
 	it "raises an error if the operation provided is not a symbol" do
