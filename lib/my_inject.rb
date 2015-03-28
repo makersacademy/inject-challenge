@@ -1,10 +1,15 @@
 class Array
-  def my_inject _starting = 0, *_or_symbol, &_or_block
+  def my_inject starting = 0, *_or_symbol, &_or_block
     accumulator = self[0]
     arr = drop(1)
     arr.each do |element|
-      accumulator = _or_block.call(accumulator, element)
+      accumulator = yield(accumulator, element)
     end
-    accumulator
+
+    if starting != 0
+      accumulator = yield(accumulator, starting)
+    else
+      accumulator
+    end
   end
 end
