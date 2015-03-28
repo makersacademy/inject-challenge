@@ -1,10 +1,3 @@
-# Needs to take a block, iterate over all the items in that block
-# and be able to:
-# - Add them all
-# - multiply them all
-# - Do the above with starting points
-# - Do the above with (i.e. don't pass in a block, just pass in (:+))
-
 require 'my_inject'
 
 describe Array do
@@ -18,9 +11,7 @@ describe Array do
     expect([1, 2, 3, 4].my_inject { |acc, element| acc * element }).to eq 24
   end
 
-  # Inject seems to always return zero, so maybe this is irrelevant?
-  # Possibly rework the array though.
-  xit 'inject and my_inject can divide items in an array' do
+  it 'inject and my_inject can divide items in an array' do
     expect([1, 2, 3, 4].inject { |acc, element| acc / element }).to eq 0
     expect([1, 2, 3, 4].my_inject { |acc, element| acc / element }).to eq 0
   end
@@ -35,6 +26,11 @@ describe Array do
     expect([1, 2, 3, 4].my_inject(2) { |acc, element| acc * element }).to eq 48
   end
 
+  it 'it inject and my_inject can divide items, given a starting point' do
+    expect([1, 2, 3, 4].inject(100) { |acc, element| acc / element }).to eq 4
+    expect([1, 2, 3, 4].my_inject(100) { |acc, element| acc / element }).to eq 4
+  end
+
   it 'inject and my_inject can minus items in an array' do
     expect([1, 2, 3].inject { |acc, element| acc - element }).to eq(-4)
     expect([1, 2, 3].my_inject { |acc, element| acc - element }).to eq(-4)
@@ -44,6 +40,50 @@ describe Array do
     expect([1, 2, 3].inject(-1) { |acc, element| acc - element }).to eq(-7)
     expect([1, 2, 3].my_inject(-1) { |acc, element| acc - element }).to eq(-7)
   end
-end
 
-# Add symbol tests here
+  context 'using symbols' do
+    it 'inject and my_inject can sum with symbols' do
+      expect([1, 2, 3].inject(:+)).to eq(6)
+      expect([1, 2, 3].my_inject(:+)).to eq(6)
+    end
+
+    it 'inject and my_inject can multiply with symbols' do
+      expect([1, 2, 3].inject(:*)).to eq(6)
+      expect([1, 2, 3].my_inject(:*)).to eq(6)
+    end
+
+    it 'inject and my_inject can minus with symbols' do
+      expect([1, 2, 3].inject(:-)).to eq(-4)
+      expect([1, 2, 3].my_inject(:-)).to eq(-4)
+    end
+
+    it 'inject and my_inject can divide with symbols' do
+      expect([100, 2, 3].inject(:/)).to eq 16
+      expect([100, 2, 3].my_inject(:/)).to eq 16
+    end
+
+    it 'inject and my_inject can sum with symbols, using a starting point' do
+      expect([1, 2, 3].inject(2, :+)).to eq(8)
+      expect([1, 2, 3].my_inject(2, :+)).to eq(8)
+    end
+
+    it 'inject and my_inject can times with symbols, using a starting point' do
+      expect([1, 2, 3].inject(2, :*)).to eq(12)
+      expect([1, 2, 3].my_inject(2, :*)).to eq(12)
+    end
+
+    it 'inject and my_inject can minus with symbols, using a starting point' do
+      expect([1, 2, 3].inject(2, :-)).to eq(-4)
+      expect([1, 2, 3].my_inject(2, :-)).to eq(-4)
+    end
+
+    it 'inject and my_inject can divide with symbols, using a starting point' do
+      expect([1, 2, 3, 4].inject(100, :/) do |acc, element|
+        acc / element
+      end).to eq 4
+      expect([1, 2, 3, 4].my_inject(100, :/) do |acc, element|
+        acc / element
+      end).to eq 4
+    end
+  end
+end
