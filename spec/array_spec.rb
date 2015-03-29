@@ -25,11 +25,11 @@ describe Array do
   it '(Test 6) can multiply with a starting point and \'*\' symbol' do
     expect([1, 2, 3].my_inject(4, :*)).to eq 24
   end
-  # Test passed
+  # Test not passing
   it '(Test 7) can add with a \':+\' symbol' do
     expect([1, 2, 3].my_inject(:+)).to eq 6
   end
-  # Test passed
+  # Test not passing
   it '(Test 8) can multiply with a \':*\' symbol' do
     expect([1, 2, 3].my_inject(:*)).to eq 6
   end
