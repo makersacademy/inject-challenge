@@ -1,3 +1,8 @@
+27-28/03/2015
+I tried test by test and it was working fine. Then suddenly my 2nd test, the times one stopped working.
+I know why and what happens but couldn't correct it with my actual ruby language knowledge.
+
+
 Inject Challenge (Rubyist Badge)
 ================
 
