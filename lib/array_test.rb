@@ -51,7 +51,7 @@ end
 # p [1, 2, 3].inject_times_symbol_starting(10, :+)
 # p [1, 2, 3].inject_add_symbol(:+)
 
-p [1, 2, 3].inject_add { |result, number| result + number }
+# p [1, 2, 3].inject_add { |result, number| result + number }
 # p [1, 2, 3].inject_times { |result, number| result + number }
 
 # p [1, 2, 3].inject_add_starting(10) { |result, number| result + number }
