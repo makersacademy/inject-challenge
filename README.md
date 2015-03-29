@@ -8,6 +8,7 @@ The main method my_inject handled block inputs with & without a start number giv
 * with_symbol handles the array if argument is a symbol
 * with_symbol_and_init handles the array if arguments are a start number and a symbol
 
+Task
 * Rewrite the inject method. Write a test for it first. Don't worry about returning an enumerator, assume a block is always given
 * Name your method differently (that is, not inject() or subclass Array) because rspec uses inject() internally, so the tests will fail with weird messages unless your implementation of inject is perfect.
 
