@@ -90,7 +90,9 @@ describe Array do
     expect([1, 2, 3, 4, 5].inject(10) { |sum, num| sum * num }).to eq 1200
   end
   it 'uses custom_inject with initial value to multiply elements together…' do
-    expect([1, 2, 3, 4, 5].custom_inject(10) { |sum, num| sum * num }).to eq 1200
+    expect([1, 2, 3, 4, 5].custom_inject(10) do |sum, num|
+      sum * num
+    end).to eq 1200
   end
 
   it 'uses inject with initial value to subtract elements…' do
