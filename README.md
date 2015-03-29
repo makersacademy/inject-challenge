@@ -1,5 +1,10 @@
+[![Build Status](https://travis-ci.org/joejknowles/inject-challenge.svg)](https://travis-ci.org/joejknowles/inject-challenge)
 Inject Challenge (Rubyist Badge)
 ================
+
+Approach
+--------
+I've created two methods (my_inject and my_inject_rec) which recreate inject's functionality. The first works iteratively and the second recursively.
 
 Instructions
 -------
@@ -19,7 +24,3 @@ Task
 * Name your method differently (that is, not inject() or subclass Array) because rspec uses inject() internally, so the tests will fail with weird messages unless your implementation of inject is perfect.
 * If you would like a challenge, rewrite inject using two approaches: using iterators and using recursion but it’s not required to pass.
 * Submit pull request with your solution
-
-
-[![Build Status](https://travis-ci.org/makersacademy/inject-challenge.svg?branch=master)](https://travis-ci.org/makersacademy/inject-challenge)
-[![Coverage Status](https://coveralls.io/repos/makersacademy/inject-challenge/badge.png)](https://coveralls.io/r/makersacademy/inject-challenge)

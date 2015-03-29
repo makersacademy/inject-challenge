@@ -45,6 +45,7 @@ Style/TrailingBlankLines:
   - final_blank_line
 
 
+
 Rails/Output:
   Description: Checks for calls to puts, print, etc.
   Enabled: false
