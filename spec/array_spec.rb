@@ -108,4 +108,32 @@ describe Array do
   it 'uses custom_inject with initial value to divide elements…' do
     expect([30, 5, 2].custom_inject(300) { |sum, num| sum / num }).to eq 1
   end
+
+  it 'uses inject with initial value and symbol to add elements together…' do
+    expect([1, 2, 3, 4, 5].inject(100, :+)).to eq 115
+  end
+  it 'uses custom_inject with initial value and symbol to add elements…' do
+    expect([1, 2, 3, 4, 5].custom_inject(100, :+)).to eq 115
+  end
+
+  it 'uses inject with initial value and symbol to multiply elements…' do
+    expect([1, 2, 3, 4, 5].inject(100, :*)).to eq 12_000
+  end
+  it 'uses custom_inject with initial value and symbol to multiply elements…' do
+    expect([1, 2, 3, 4, 5].custom_inject(100, :*)).to eq 12_000
+  end
+
+  it 'uses inject with initial value and symbol to subtract elements…' do
+    expect([1, 2, 3, 4, 5].inject(100, :-)).to eq 85
+  end
+  it 'uses custom_inject with initial value and symbol to subtract elements…' do
+    expect([1, 2, 3, 4, 5].custom_inject(100, :-)).to eq 85
+  end
+
+  it 'uses inject with initial value and symbol to divide elements…' do
+    expect([30, 5, 2].inject(600, :/)).to eq 2
+  end
+  it 'uses custom_inject with initial value to divide elements…' do
+    expect([30, 5, 2].custom_inject(600, :/)).to eq 2
+  end
 end
