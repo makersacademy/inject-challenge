@@ -40,3 +40,9 @@ Style/TrailingBlankLines:
   SupportedStyles:
   - final_newline
   - final_blank_line
+
+Metrics/LineLength:
+  Max: 99
+
+Metrics/MethodLength:
+  Enabled: false
