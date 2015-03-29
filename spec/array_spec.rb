@@ -1,4 +1,4 @@
-require 'array'
+require 'recursive_inject'
 
 describe Array do
   it "can add" do
