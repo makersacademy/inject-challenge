@@ -11,6 +11,8 @@ class Array
     total
   end
 
+  private
+
   def what_are_my_arguments arg, arg_sym
     if arg_sym.is_a? Symbol
       i_has_two arg, arg_sym
