@@ -3,11 +3,11 @@ class Array
     if block_given?
       if !starting.nil?
         sum = starting
-        each { |num| sum = yield(sum, num) }
+        each { |num| sum = block.call(sum, num) }
         sum
       else
         sum = shift
-        each { |num| sum = yield(sum, num) }
+        each { |num| sum = block.call(sum, num) }
         sum
       end
     else
@@ -22,7 +22,7 @@ class Array
           each { |num| sum *= num }
           sum
         end
-      elsif
+      else
         case symbol
         when :+
           sum = shift
@@ -37,14 +37,3 @@ class Array
     end
   end
 end
-
-  # if symbol.is_a? Symbol
-  #     sum = self.first
-  #     self.shift
-  #     case symbol
-  #     when :+
-  #       self.each { |num| sum += num }
-  #       sum
-  #     when :*
-  #       self.each { |num| sum *= num }
-  #       sum
