@@ -1,5 +1,5 @@
 class Array
-  def my_inject starting = nil, symbol = nil, &block
+  def my_inject(starting = nil, symbol = nil, &block)
     if block_given?
       if !starting.nil?
         sum = starting
