@@ -17,6 +17,11 @@ describe Array do
       it 'multiplies contents' do
         expect(array.deflate { |sum, num| sum *= num }).to eq(6)
       end
+      it 'the original array is unaltered' do
+        original_array = array
+        array.deflate { |sum, num| sum *= num }
+        expect(array).to eq original_array
+      end
     end
 
     context 'when passed a block and a initial value' do
@@ -37,10 +42,17 @@ describe Array do
       it 'uses it to reduce its contents' do
         expect(array.deflate :+).to eq(6)
 
-        expect([1, 2, 3].deflate :*).to eq(6)
+        expect(array.deflate :*).to eq(6)
 
-        expect([1, 2, 3].deflate :-).to eq(-4)
+        expect(array.deflate :-).to eq(-4)
       end
+
+      it 'the original array is unaltered' do
+        original_array = array
+        array.deflate(:*)
+        expect(array).to eq original_array
+      end
+
       it 'uses it to reduce its contents from an initial value' do
         expect(array.deflate(10, :+)).to eq(16)
       end

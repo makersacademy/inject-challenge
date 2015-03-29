@@ -1,12 +1,15 @@
 class Array
   def deflate(*args, &block)
-    return deflate_block(args.first, block) if block_given?
-    deflate_no_block(*args)
+    original = dup
+    result = deflate_no_block(*args) unless block_given?
+    result = deflate_with_block(args.first, block) if block_given?
+    replace original
+    result
   end
 
   private
 
-  def deflate_block(explicit_initial, block)
+  def deflate_with_block(explicit_initial, block)
     memo = explicit_initial || shift
     each { |element| memo = block.call(memo, element) }
     memo
