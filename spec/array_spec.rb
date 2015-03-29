@@ -36,8 +36,8 @@ describe Array do
     expect([1, 2, 3].my_inject(2, :+)).to eq 8
     expect([1, 2, 3].inject(2, :+)).to eq 8
   end
-  # it 'multiplies with initial number arg and symbol *' do
-  #   expect([1, 2, 3].my_inject(2, :*)).to eq 12
-  #   expect([1, 2, 3].inject(2, :*)).to eq 12
-  # end
+  it 'multiplies with initial number arg and symbol *' do
+    expect([1, 2, 3].my_inject(2, :*)).to eq 12
+    expect([1, 2, 3].inject(2, :*)).to eq 12
+  end
 end
