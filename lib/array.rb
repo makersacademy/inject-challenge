@@ -2,12 +2,17 @@ class Array
   def my_inject *args, &block
     result = args.detect { |argument| !(argument.is_a?(Symbol)) } || shift
     symbol = args.detect { |argument| argument.is_a?(Symbol) }
-    each { |elem| result = result.send(symbol, elem) } if symbol
     each { |elem| result = block.call(result, elem) } unless symbol
+    if [:*, :/, :+, :-].include?(symbol)
+      each { |elem| result = result.send(symbol, elem) }
+    else
+      fail "Symbol is not one of the 4 basic operators: +, -, *, /"
+    end
     result
   end
 end
 
+p [1,2,3,4,5].my_inject(4)
 #   def my_inject *args, &block
 #     fail 'Too many arguments' if args.length > 2
 #     if args.length == 2
