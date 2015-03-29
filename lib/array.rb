@@ -7,14 +7,9 @@ class Array
     elsif symbol.is_a? Symbol
       each { |num| result = result.send symbol, num }
     else
-      each { |num| result = yield result, num } if block_given?
+      each { |num| result = yield result, num }
     end
     result
   end
 end
 
-p [1, 2, 3].my_inject { |result, number| result + number }
-p [1, 2, 3].my_inject { |result, number| result * number }
-p [1, 2, 3].my_inject(10) { |result, number| result + number }
-p [1, 2, 3].my_inject(10, :*)
-p [1, 2, 3].my_inject(:+) # 1.+(2)
