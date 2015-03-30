@@ -13,6 +13,7 @@ Task
 
 * Fill out your learning plan self review for the week: https://github.com/makersacademy/learning_plan
 * Fork this repo
+* run the command 'bundle' in the project directory to ensure you have all the gems
 * Reopen the Array class or subclass it.
 * Rewrite the inject method. Write a test for it first. Don't worry about returning an enumerator, assume a block is always given
 * Name your method differently (that is, not inject() or subclass Array) because rspec uses inject() internally, so the tests will fail with weird messages unless your implementation of inject is perfect.
