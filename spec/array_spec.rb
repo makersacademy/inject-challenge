@@ -1,6 +1,6 @@
 require 'array'
 
-describe 'Array' do
+context 'Array' do
   context 'without arguments' do
     it 'can add' do
       expect([1, 2, 3].inject { |sum, n| sum + n }).to eq 6
@@ -86,6 +86,14 @@ describe 'Array' do
     it 'can divide with a starting point and a symbol' do
       expect([2, 2, 2].inject(80, :/)).to eq 10
       expect([2, 2, 2].my_inject(80, :/)).to eq 10
+    end
+  end
+
+  context 'with strings' do
+    it 'can add' do
+      expect(%w(a b c).inject { |sum, n| sum + ' ' + n }).to eq 'a b c'
+      expect(%w(a b c).my_inject { |sum, n| sum + ' ' + n }).to eq 'a b c'
+
     end
   end
 end

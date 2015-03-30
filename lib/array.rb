@@ -1,4 +1,3 @@
-
 class Array
   def my_inject(arg = nil, arg_sym = nil)
     arg.nil? || arg.is_a?(Symbol) ? result = self[0] : result = arg
