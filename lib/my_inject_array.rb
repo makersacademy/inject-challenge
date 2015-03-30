@@ -11,4 +11,4 @@ class Array
   end
 end
 
-# [2, 4, 6].my_inject(5) { |memo, element| memo + element }
+[2, 4, 6].my_inject(5) { |memo, element| memo + element }
