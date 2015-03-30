@@ -25,6 +25,14 @@ describe Array do
         sum / el
       end).to eq([100, 3, 4].inject { |sum, el| sum / el })
     end
+
+    it 'concatenates strings' do
+      expect(["what", "this is", "doing"].gusject do |sum, el|
+        sum + " " + el
+      end).to eq(["what", "this is", "doing"].inject do |sum, el|
+        sum + " " + el
+      end)
+    end
   end
 
   context '#gusject method allows initial value to be set' do
