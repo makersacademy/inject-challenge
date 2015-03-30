@@ -5,8 +5,11 @@ describe Array do
   context 'with just a block' do
 
     it 'can add' do
-      expect([1, 2, 3, 4].inject { |mem, el| mem + el }).to eq 10
-      expect([1, 2, 3, 4].my_inject { |mem, el| mem + el }).to eq 10
+      arr = [1,2,3,4]
+      p arr
+      expect(arr.inject { |mem, el| mem + el }).to eq 10
+      expect(arr.my_inject { |mem, el| mem + el }).to eq 10
+      p arr
     end
 
     it 'can subtract' do

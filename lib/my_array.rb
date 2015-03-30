@@ -1,37 +1,18 @@
 class Array
-  def my_inject arg = false, arg_sym = false, &block
-    @arr = self
-    what_are_my_arguments arg, arg_sym
-    total = @start
-    if @sym
-      @arr.each { |el| total =  total.method(@sym).call(el) }
-    else
-      @arr.each { |el| total = block.call(total, el) }
-    end
-    total
+  def my_inject arg = nil, arg_sym = nil, &block
+    copy = self.dup
+    arguments = argument_hash(copy, arg, arg_sym)
+    copy.each { |el| arguments[:total] =  arguments[:total].send(arguments[:method], el) }  if arguments[:method]
+    copy.each { |el| arguments[:total] =  block.call(arguments[:total], el) } unless  arguments[:method]
+    arguments[:total]
   end
 
   private
 
-  def what_are_my_arguments arg, arg_sym
-    if arg_sym.is_a? Symbol
-      i_has_two arg, arg_sym
-    else
-      if arg.is_a? Symbol
-        i_has_just_a_symbol arg
-      else
-        arg ? @start = arg : @start = @arr.shift
-      end
-    end
+  def argument_hash copy, arg, arg_sym
+    return {total: arg, method: arg_sym} if arg_sym
+    return {total: copy.shift, method: arg } if arg.is_a? Symbol
+    {total: (arg ? arg : copy.shift)}
   end
 
-  def i_has_two arg, arg_sym
-    @start = arg
-    @sym = arg_sym
-  end
-
-  def i_has_just_a_symbol arg
-    @sym = arg
-    @start = @arr.shift
-  end
 end
