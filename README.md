@@ -1,6 +1,8 @@
 Inject Challenge (Rubyist Badge)
 ================
 
+[![Build Status](https://travis-ci.org/james-miller/inject-challenge.svg?branch=master)](https://travis-ci.org/james-miller/inject-challenge)
+
 My solution to the Inject Challenge.
 
 I have submitted two solutions - one which solves using iterators and one which uses recursion. The recursive solution is not yet perfect as it cannot deal with symbols only currently.
