@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/Gwasanaethau/inject-challenge.svg?branch=master)](https://travis-ci.org/Gwasanaethau/inject-challenge)
+[![Coverage Status](https://coveralls.io/repos/Gwasanaethau/inject-challenge/badge.svg)](https://coveralls.io/r/Gwasanaethau/inject-challenge)
 
 ###Inject Challenge###
 
