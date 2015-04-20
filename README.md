@@ -1,25 +1,26 @@
-Inject Challenge (Rubyist Badge)
+Inject Challenge
 ================
 
-Instructions
--------
+The fourth program I built during my programming bootcamp at [Makers Academy](http://www.makersacademy.com/). 
 
-* Challenge time: Friday, the entire day + the weekend if you need it
-* Feel free to use google, your notes, books, etc but work on your own
-* You must submit a pull request to this repo with your challenge solution by 9am Monday morning
+Objective
+----------
 
-Task
------
+The objective was to Rewrite the inject method. To approach this challenge, I researched the inject method on [Ruby Docs](http://ruby-doc.org/core-2.2.2/Enumerable.html#method-i-inject) and then experimented with it in IRB (Interactive Ruby Shell) until I was clear on how it functions. This put me in a good place to write my own version of the method.
 
-* Fill out your learning plan self review for the week: https://github.com/makersacademy/learning_plan
-* Fork this repo
-* run the command 'bundle' in the project directory to ensure you have all the gems
-* Reopen the Array class or subclass it.
-* Rewrite the inject method. Write a test for it first. Don't worry about returning an enumerator, assume a block is always given
-* Name your method differently (that is, not inject() or subclass Array) because rspec uses inject() internally, so the tests will fail with weird messages unless your implementation of inject is perfect.
-* If you would like a challenge, rewrite inject using two approaches: using iterators and using recursion but it’s not required to pass.
-* Submit pull request with your solution
+How to use
+--------------
 
+* Fork and clone this repo
+* Navigate to the cloned directory in terminal
+* Fire up IRB: `$ irb`
+* Require the files: `> require ‘./lib/my_array.rb’`
+* Run `bundle` and then `rspec` to watch the tests pass
+* Call the `my_inject` method, for example:
 
-[![Build Status](https://travis-ci.org/makersacademy/inject-challenge.svg?branch=master)](https://travis-ci.org/makersacademy/inject-challenge)
-[![Coverage Status](https://coveralls.io/repos/makersacademy/inject-challenge/badge.png)](https://coveralls.io/r/makersacademy/inject-challenge)
+```
+[1, 2, 3, 4].my_inject { |mem, el| mem + el }
+[1, 2, 3, 4].my_inject(10) { |mem, el| mem - el }
+[1, 2, 3, 4].my_inject :*
+[1.0, 2.0, 3.0, 4.0].my_inject(10, :/)
+```
