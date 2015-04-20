@@ -1,26 +1,18 @@
 class Array
   def my_inject arg = false, arg_sym = false, &block
-    add = Proc.new { |mem, el| mem + el }
-    subtract = Proc.new { |mem, el| mem - el }
-    multipy = Proc.new { |mem, el| mem * el }
-    divide = Proc.new { |mem, el| mem / el }
+    arr = self
+
     if arg_sym
       total = arg
-      self.each do |el|
-            total =  total.method(arg_sym).call(el)
-        end
+      arr.each { |el| total =  total.method(arg_sym).call(el) }
     else
       case arg
       when Symbol
-        total = self.shift
-        self.each do |el|
-            total =  total.method(arg).call(el)
-        end
+        total = arr.shift
+        arr.each { |el| total =  total.method(arg).call(el) }
       else
-        arg ? total = arg : total = self.shift
-        self.each do |el|
-            total = block.call(total, el)
-        end
+        arg ? total = arg : total = arr.shift
+        arr.each { |el| total = block.call(total, el) }
       end
     end
     total
