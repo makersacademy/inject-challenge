@@ -24,3 +24,8 @@ How to use
 [1, 2, 3, 4].my_inject :*
 [1.0, 2.0, 3.0, 4.0].my_inject(10, :/)
 ```
+
+Planned upgrades
+----------------
+
+* test coverage badge + hound passing build
