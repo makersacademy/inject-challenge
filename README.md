@@ -11,7 +11,7 @@ The objective was to Rewrite the inject method. To approach this challenge, I re
 How to use
 --------------
 
-* Fork and clone this repo
+* Clone this repo
 * Navigate to the cloned directory in terminal
 * Fire up IRB: `$ irb`
 * Require the files: `> require ‘./lib/my_array.rb’`
