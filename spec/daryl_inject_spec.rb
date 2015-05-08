@@ -33,8 +33,9 @@ describe Array do
   end
 
   it 'can handle strings' do
-    output = ['Daryl, Tim, Ptolemy, Ben, Sam'].daryl_inject { |sum, firstword| sum + firstword }
-    expect(output).to eq ['Daryl, Tim, Ptolemy, Ben, Sam'].inject { |sum, firstword| sum + firstword }
+    output = ['Daryl, Tim, Ptolemy, Ben, Sam']
+    result = output.daryl_inject { |sum, firstword| sum + firstword }
+    expect(result).to eq output.inject { |sum, firstword| sum + firstword }
   end
 
   it 'can do recursion style' do
