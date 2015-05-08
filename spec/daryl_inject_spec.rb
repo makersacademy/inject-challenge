@@ -37,5 +37,14 @@ describe Array do
     expect(output).to eq ['Daryl, Tim, Ptolemy, Ben, Sam'].inject { |sum, firstword| sum + firstword }
   end
 
+  it 'can do recursion style' do
+    output = (1..10).to_a.daryl_inject2(0) { |sum, number| sum + number }
+    expect(output).to eq ((1..10)).inject(0) { |sum, number| sum + number }
+  end
+
+  it 'can do recursion style without a default' do
+    output = (1..10).to_a.daryl_inject2 { |sum, number| sum + number }
+    expect(output).to eq ((1..10)).inject(0) { |sum, number| sum + number }
+  end
 
 end
