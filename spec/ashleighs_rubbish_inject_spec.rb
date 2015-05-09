@@ -15,43 +15,38 @@ describe Array do
   end
 
 context 'to return the same values as inject method:' do
+  array = [1,2,3,4]
   it 'array = [1,2,3,4], input = 0 and operator = \'+\', return true' do
-    array = [1,2,3,4]
 	new_method = array.inject_method(0){|start, n| start + n}
 	smelly_old_method = array.inject(0){|start, n| start + n}
 	expect(new_method).to eq smelly_old_method
   end
 
   it 'array = [1,2,3,4], input = 1 and operator = \'*\', return true' do
-    array = [1,2,3,4]
 	new_method = array.inject_method(1){|start, n| start * n}
 	smelly_old_method = array.inject(1){|start, n| start * n}
 	expect(new_method).to eq smelly_old_method
   end
 
   it 'array = [1,2,3,4], input = 0 and operator = \'-\', return true' do
-    array = [1,2,3,4]
 	new_method = array.inject_method(0){|start, n| start - n}
 	smelly_old_method = array.inject(0){|start, n| start - n}
 	expect(new_method).to eq smelly_old_method
   end
 
-  it 'array = [2,3,4,5], input = 1 and operator = \'/\', return true' do
-    array = [2,3,4,5]
+  it 'array = [1,2,3,4], input = 1 and operator = \'/\', return true' do
 	new_method = array.inject_method(1){|start, n| start / n}
 	smelly_old_method = array.inject(1){|start, n| start / n}
 	expect(new_method).to eq smelly_old_method
   end
 
-    it 'array = [1,2,3,4], input = 0 and operator = \'||\', return true' do
-    array = [1,2,3,4]
+  it 'array = [1,2,3,4], input = 0 and operator = \'||\', return true' do
 	new_method = array.inject_method(0){|start, n| start || n}
 	smelly_old_method = array.inject(0){|start, n| start || n}
 	expect(new_method).to eq smelly_old_method
   end
 
   it 'array = [1,2,3,4], input = 0 and operator = \'&&\', return true' do
-    array = [1,2,3,4]
 	new_method = array.inject_method(0){|start, n| start && n}
 	smelly_old_method = array.inject(0){|start, n| start && n}
 	expect(new_method).to eq smelly_old_method
