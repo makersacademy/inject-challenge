@@ -63,6 +63,19 @@ context 'to return the same values as inject method:' do
 	expect(new_method).to eq smelly_old_method
   end
 
+    it 'array = [1,2,3,4], input = 0 and operator = \'||\', return true' do
+    array = [1,2,3,4]
+	new_method = array.inject_method(0){|start, n| start || n}
+	smelly_old_method = array.inject(0){|start, n| start || n}
+	expect(new_method).to eq smelly_old_method
+  end
+
+  it 'array = [1,2,3,4], input = 0 and operator = \'&&\', return true' do
+    array = [1,2,3,4]
+	new_method = array.inject_method(0){|start, n| start && n}
+	smelly_old_method = array.inject(0){|start, n| start && n}
+	expect(new_method).to eq smelly_old_method
+  end
 
 end
 
