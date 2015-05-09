@@ -1,25 +1,17 @@
-Inject Challenge (Rubyist Badge)
+Inject Challenge
 ================
 
-Instructions
+Summary of Inject
 -------
 
-* Challenge time: Friday, the entire day + the weekend if you need it
-* Feel free to use google, your notes, books, etc but work on your own
-* You must submit a pull request to this repo with your challenge solution by 9am Monday morning
+* Inject is an Enumerable that can be used on collections and takes 4 main inputs - a block, a block and a starting point, a starting point and a symbol and a symbol on its own
+* Inject uses two dummy variables - an accumulator (or memo) and an element
+* The accumulator variable can represent both the starting point for an iteration or an object that will accumulate with each element (e.g. a hash). The default starting point is at index 0 of the collection. If the starting point equals the first value of the collection then accumulator can start iterating from the next element
+* The element variable represents each individual element in the collection that is passed into the accumulator
+* Common uses include summing a collection and manipulating between data structures e.g. hashes to multi-dimensional arrays and arrays to hashes
 
-Task
+Status
 -----
 
-* Fill out your learning plan self review for the week: https://github.com/makersacademy/learning_plan
-* Fork this repo
-* run the command 'bundle' in the project directory to ensure you have all the gems
-* Reopen the Array class or subclass it.
-* Rewrite the inject method. Write a test for it first. Don't worry about returning an enumerator, assume a block is always given
-* Name your method differently (that is, not inject() or subclass Array) because rspec uses inject() internally, so the tests will fail with weird messages unless your implementation of inject is perfect.
-* If you would like a challenge, rewrite inject using two approaches: using iterators and using recursion but it’s not required to pass.
-* Submit pull request with your solution
-
-
-[![Build Status](https://travis-ci.org/makersacademy/inject-challenge.svg?branch=master)](https://travis-ci.org/makersacademy/inject-challenge)
-[![Coverage Status](https://coveralls.io/repos/makersacademy/inject-challenge/badge.png)](https://coveralls.io/r/makersacademy/inject-challenge)
+* Implemented a basic version on the array class that can handle 2 scenarios - block passed on its own and block passed with a stated starting point
+* All tests passing locally
