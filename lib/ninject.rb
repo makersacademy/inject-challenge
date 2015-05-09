@@ -1,6 +1,6 @@
 class Array
   def ninject(start = nil, &code)
-    proc = Proc.new &code
+    proc = proc (&code)
     each_with_index do |obj, index|
       if index == 0
         start.nil? ? @memo = obj : @memo = proc.call(start, obj)
