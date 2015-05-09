@@ -14,26 +14,6 @@ describe Array do
   	expect(subject).to respond_to(:inject_method).with(1).arguments
   end
 
-# how to pass operator to our method? Googlings
-# => need to write operator as a symbol like ":+"?
-# not doing this now, too complicated for my tiny brain
-# ==> decided to persevere with using block
-
-# need to figure out if there is a test for this?
-# does inject method only accept blocks? check with irb
-# ... yesss it does. Can I test for that?
-  xit 'to receive block as argument' do
-  end
-
-  xit 'to receive number as an argument and output number or boolean' do
-    array = [1,2,3,4]
-	new_method = array.inject_method(10){|start, n| start  n}
-	expect(new_method).to eq nil
-  end
-
-  xit 'to receive string as an argument and output string' do
-  end
-
 context 'to return the same values as inject method:' do
   it 'array = [1,2,3,4], input = 0 and operator = \'+\', return true' do
     array = [1,2,3,4]
@@ -77,9 +57,12 @@ context 'to return the same values as inject method:' do
 	expect(new_method).to eq smelly_old_method
   end
 
+  it 'array = ["let\'s ", "be ", "friends!"], input = "add me " and operator = \'+\', return true' do
+    array = ["let\'s ", "be ", "friends!"]
+	new_method = array.inject_method("add me "){|start, n| start + n}
+	smelly_old_method = array.inject("add me "){|start, n| start + n}
+	expect(new_method).to eq smelly_old_method
+  end
 end
 
 end
-
-
-
