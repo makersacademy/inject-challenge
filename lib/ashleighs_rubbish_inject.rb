@@ -1,10 +1,11 @@
 class Array
   def inject_method(arg)
-  	self.each_with_index do |n,i|
-  	  arg = yield(n,i)
+  	array_length = self.length
+  	self[0..array_length].each do |n|
+  	  arg = yield(arg,n)
+    end
+    arg
   end
-  arg
-end
 end
 
 
