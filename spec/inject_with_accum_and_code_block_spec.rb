@@ -29,9 +29,9 @@ describe Array do # This doesn't match to e.g. hashes
     hash = Hash.new
     hash["one"] = 37
     hash["two"] = 42
-    expect(hash.danject({ "zero" => 32 }
+    expect(hash.danject("zero" => 32
     ) { |accum, item| accum.to_s + item.flatten.to_s }
-    ).to eq(hash.inject({ "zero" => 32 }
+    ).to eq(hash.inject("zero" => 32
     ) { |accum, item| accum.to_s + item.flatten.to_s })
   end
 end
