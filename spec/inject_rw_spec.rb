@@ -3,51 +3,33 @@ require 'inject_rw'
 describe Array do
 
   it 'Can add' do
-    expect([1,2,3].inject_rw{ |a, e| a + e }).to eq 6
+    code = (0..5).to_a.inject_rw{ |a, e| a + e }
+    expect(code).to eq (0..5).to_a.inject{ |a, e| a + e }
   end
 
   it 'Can multiply' do
-    expect([1,2,3].inject_rw{ |a, e| a * e }).to eq 6
+    code = (0..5).to_a.inject_rw{ |a, e| a * e }
+    expect(code).to eq (0..5).to_a.inject{ |a, e| a * e }
   end
 
   it 'Can add with a starting point' do
-    expect([1,2,3].inject_rw(10){ |a, e| a + e }).to eq 16
+    code = (0..5).to_a.inject_rw(10){ |a, e| a + e }
+    expect(code).to eql (0..5).to_a.inject(10){ |a, e| a + e }
   end
 
   it 'Can multiply with a starting point' do
-    expect([1,2,3].inject_rw(10){ |a, e| a * e }).to eq 60
+    code = (0..5).to_a.inject_rw(10){ |a, e| a * e }
+    expect(code).to eq (0..5).to_a.inject(10){ |a, e| a * e }
   end
 
   xit 'Can add with a symbol' do
-    expect([1,2,3].inject_rw(:+)).to eq 6
+    code = (0..5).to_a.inject_rw(:+)
+    expect(code).to eql (0..5).to_a.inject(:+)
   end
 
   xit 'Can add with a starting point and a symbol' do
-    expect([1,2,3].inject_rw(10, :*)).to eq 60
+    code = (0..5).to_a.inject_rw(10, :*)
+    expect(code).to eq (0..5).to_a.inject(10, :*)
   end
 
 end
-
-  # it 'Can add' do
-  #   expect([1,2,3].inject{ |a, e| a + e }).to eq 6
-  # end
-
-  # it 'Can multiply' do
-  #   expect([1,2,3].inject{ |a, e| a * e }).to eq 6
-  # end
-
-  # it 'Can add with a starting point' do
-  #   expect([1,2,3].inject(10){ |a, e| a + e }).to eq 16
-  # end
-
-  # it 'Can multiply with a starting point' do
-  #   expect([1,2,3].inject(10){ |a, e| a * e }).to eq 60
-  # end
-
-  # it 'Can add with a symbol' do
-  #   expect([1,2,3].inject(:+)).to eq 6
-  # end
-
-  # it 'Can add with a starting point and a symbol' do
-  #   expect([1,2,3].inject(10, :*)).to eq 60
-  # end
