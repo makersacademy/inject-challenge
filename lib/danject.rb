@@ -1,5 +1,4 @@
 module Enumerable
-
   def danject(*accum)
     if accum.empty?
       accum = self.first
