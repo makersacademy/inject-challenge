@@ -3,7 +3,7 @@ describe 'method works the same way as inject:' do
 
   it 'with strings' do
     array = ["inject", "is", "cool"]
-    expect(array.molliesinject{|sentence, word| sentence + word}).to eq "injectiscool"
+    expect(array.molliesinject { |sentence, word| sentence + word }).to eq "injectiscool"
   end
 
   it 'with numbers and simple sums' do
@@ -17,6 +17,6 @@ describe 'method works the same way as inject:' do
 
   xit 'takes an optional starting point' do
     array = [1, 2, 3, 4, 5, 6, 7]
-    expect(array.molliesinject(2){|tot, num| tot + num }).to eq 30
+    expect(array.molliesinject(2) {|tot, num| tot + num }).to eq 30
   end
 end

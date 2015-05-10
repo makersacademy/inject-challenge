@@ -11,7 +11,7 @@ Completed
 
 * Written a method that mimics inject for simple sums, multiplication and strings.
 
-To Do 
+To Do
 ----
 
 * Ensure my method works with a chosen starting point
