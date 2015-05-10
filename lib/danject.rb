@@ -6,6 +6,7 @@ module Enumerable
         accum = yield(accum, item)
       end
     else
+      accum = accum[0]
       self.each do |item|
         accum = yield(accum, item)
       end
