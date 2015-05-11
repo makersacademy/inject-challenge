@@ -32,4 +32,14 @@ describe Array do
     expect(code).to eq (0..5).to_a.inject(10, :*)
   end
 
+  it 'Can handle strings' do
+    code = ['john', 'ringo', 'george', 'paul'].inject_rw { |a, e| a + e }
+    expect(code).to eq ['john', 'ringo', 'george', 'paul'].inject { |a, e| a + e }
+  end
+
+  it 'Can handle strings (with symbols)' do
+    code = ['john', 'ringo', 'george', 'paul'].inject_rw(:+)
+    expect(code).to eq ['john', 'ringo', 'george', 'paul'].inject(:+)
+  end
+
 end
