@@ -20,7 +20,7 @@ describe Array do
     end
 
     it 'should accept a symbol' do
-      expect([5,6,7,8,9,10].new_inject_block(:+)).to eq 45
+      expect([5,6,7,8,9,10].new_inject_sym(:+)).to eq 45
     end
   end
 end
