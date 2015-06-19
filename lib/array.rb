@@ -1,18 +1,12 @@
 class Array
   def faisal_inject (arg = 'empty', symbol = nil)
 
-    if symbol.instance_of? Symbol
-        arithmetic_proc = symbol.to_proc
-    end
-    if arg.instance_of? Symbol
-        arithmetic_proc = arg.to_proc
-    end
+    arithmetic_proc = symbol.to_proc if symbol.instance_of? Symbol
+    arithmetic_proc = arg.to_proc if arg.instance_of? Symbol
 
     if arg.instance_of? Fixnum
       return faisal_inject(arg){|k,v| arithmetic_proc.call(k,v)} if symbol.instance_of? Symbol
     end
-
-    #symbol.to_proc
 
     return faisal_inject{|k,v| arithmetic_proc.call(k,v)} if arg.instance_of? Symbol
 
@@ -32,7 +26,7 @@ class Array
 
   private
 
-  attr_accessor :total, :temp_array
+  attr_accessor :total, :temp_array, :arithmetic_proc
 
   def arg_input? arg
     arg == 'empty'
