@@ -40,5 +40,9 @@ describe Array do
       expect(subject.faisal_inject(10,:*)).to eq 240
     end
 
+    it 'works with hashes' do
+      expect(subject.faisal_inject({}){|k,v| k[v] = 3; k}).to eq ({1=>3, 2=>3, 3=>3, 4=>3})
+    end
+
   end
 end
