@@ -36,5 +36,9 @@ describe Array do
       expect(subject.faisal_inject(10,:+)).to eq 20
     end
 
+    it 'can take a 2 arguments' do
+      expect(subject.faisal_inject(10,:*)).to eq 240
+    end
+
   end
 end
