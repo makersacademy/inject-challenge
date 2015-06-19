@@ -1,11 +1,12 @@
 class Array
   def faisal_inject (arg = 'empty', symbol = nil)
 
+    if symbol.instance_of? Symbol
+        arithmetic_proc = symbol.to_proc
+    end
+
     if arg.instance_of? Fixnum
-      return faisal_inject(arg){|k,v| k + v} if symbol == :+
-      return faisal_inject(arg){|k,v| k - v} if symbol == :-
-      return faisal_inject(arg){|k,v| k * v} if symbol == :*
-      return faisal_inject(arg){|k,v| k / v} if symbol == :/
+      return faisal_inject(arg){|k,v| arithmetic_proc.call(k,v)} if symbol.instance_of? Symbol
     end
 
     #symbol.to_proc
