@@ -4,6 +4,9 @@ class Array
     if symbol.instance_of? Symbol
         arithmetic_proc = symbol.to_proc
     end
+    if arg.instance_of? Symbol
+        arithmetic_proc = arg.to_proc
+    end
 
     if arg.instance_of? Fixnum
       return faisal_inject(arg){|k,v| arithmetic_proc.call(k,v)} if symbol.instance_of? Symbol
@@ -11,10 +14,7 @@ class Array
 
     #symbol.to_proc
 
-    return faisal_inject{|k,v| k + v} if symbol == :+ || arg == :+
-    return faisal_inject{|k,v| k - v} if symbol == :- || arg == :-
-    return faisal_inject{|k,v| k * v} if symbol == :* || arg == :*
-    return faisal_inject{|k,v| k / v} if symbol == :/ || arg == :/
+    return faisal_inject{|k,v| arithmetic_proc.call(k,v)} if arg.instance_of? Symbol
 
     if arg_input? arg
       temp_array = self.slice(1 , self.size - 1)
