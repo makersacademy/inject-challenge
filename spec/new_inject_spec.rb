@@ -11,7 +11,7 @@ describe 'inject challenge is to rewrite the inject method for enumerables' do
   end
 
   it 'concats strings' do
-    expect(("a".."z").new_inject{ |sum, n| sum + n }).to eq "abcdefghijklmnopqrstuvwxyz"
+    expect(("a".."z").new_inject { |sum, n| sum + n }).to eq "abcdefghijklmnopqrstuvwxyz"
   end
 
   it 'builds a hash from a an array of arrays' do
@@ -20,7 +20,7 @@ describe 'inject challenge is to rewrite the inject method for enumerables' do
       memo[key] = value
       memo
     end
-    expect(hash).to eq({'A' => 1, 'B' => 2, 'C' => 3})
+    expect(hash).to eq({ 'A' => 1, 'B' => 2, 'C' => 3 })
   end
 
 end
