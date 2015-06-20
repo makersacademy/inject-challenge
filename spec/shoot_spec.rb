@@ -23,6 +23,12 @@ describe ModifiedArray do
   it 'adds up an array of 1 - 5' do
     array = ModifiedArray.new
     array << 1 << 2 << 3 << 4 << 5
+    expect(array.shoot(0) { |acc, el| acc * el }).to eq 120
+  end
+
+  it 'adds up an array of 1 - 5' do
+    array = ModifiedArray.new
+    array << 1 << 2 << 3 << 4 << 5
     expect(array.shoot(5) { |acc, el| acc + el }).to eq 20
   end
 
