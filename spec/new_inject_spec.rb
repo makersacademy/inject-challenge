@@ -1,4 +1,4 @@
-require 'new_inject'
+require './lib/new_inject'
 
 describe 'inject challenge is to rewrite the inject method for enumerables' do
 
@@ -11,7 +11,7 @@ describe 'inject challenge is to rewrite the inject method for enumerables' do
   end
 
   it 'concats strings' do
-    expect(("a".."z").new_inject{|sum, n| sum + n}).to eq "abcdefghijklmnopqrstuvwxyz"
+    expect(("a".."z").new_inject{ |sum, n| sum + n }).to eq "abcdefghijklmnopqrstuvwxyz"
   end
 
   it 'builds a hash from a an array of arrays' do
