@@ -6,8 +6,7 @@ module Inject_challenge
         start_with = self.first
         next
       end
-      n = yield(start_with, i)
-      start_with = n
+      start_with = yield(start_with, i)
     end
     start_with
   end
