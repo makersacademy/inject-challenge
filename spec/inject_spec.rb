@@ -30,4 +30,3 @@ describe Array do
     expect(["this","is","a","test"].new_inject("new") {|res,ele| res + ele}).to eq "newthisisatest"
   end
 end
-
