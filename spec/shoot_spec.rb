@@ -26,10 +26,16 @@ describe ModifiedArray do
     expect(array.shoot(5) { |acc, el| acc + el }).to eq 20
   end
 
-  it "" do
+  it "returns 15 when called without a block but argument" do
     array = ModifiedArray.new
     array << 1 << 2 << 3 << 4 << 5
     expect(array.shoot(:+)).to eq 15
+  end
+
+  it "returns 15 when called without a block but argument" do
+    array = ModifiedArray.new
+    array << 1 << 2 << 3 << 4 << 5
+    expect(array.shoot(:-)).to eq -15
   end
 
   it "strings" do
