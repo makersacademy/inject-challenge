@@ -7,13 +7,12 @@ describe Array do
   end
   
   it 'returns "sheep" when passed ["cat", "sheep", "bear"]' do
-	  ['cat', 'sheep', 'bear'].injector do |memo, word|
-	    memo.length > word.length ? memo : word 
-	  end
+    ['cat', 'sheep', 'bear'].injector do |memo, word|
+	  memo.length > word.length ? memo : word 
+	end
   end
 
   it 'returns 151200 when passed (5..10)' do
     expect([5, 6, 7, 8, 9, 10].injector { |product, n| product * n }).to eq 151200
   end
-
 end
