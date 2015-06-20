@@ -6,9 +6,9 @@ describe Array do
     expect([1, 5, 2].injector { |sum, n| sum + n }).to eq 8
   end
 
-  it 'returns "sheep" when passed do |memo, word| memo.length > word.length ? memo : word end on ["cat", "sheep", "bear"]' do
+  it 'returns "sheep" when passed "do |memo, word| memo.length > word.length ? memo : word end" on ["cat", "sheep", "bear"]' do
     ['cat', 'sheep', 'bear'].injector do |memo, word|
-    memo.length > word.length ? memo : word
+      memo.length > word.length ? memo : word
     end
   end
 

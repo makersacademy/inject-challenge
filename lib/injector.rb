@@ -1,11 +1,9 @@
 class Array
 
-  def injector &lambda
-    len = self.length - 1
+  def injector
+    array_length = self.length - 1
     result = self[0]
-    (1..len).each do |x|
-      result = yield result, self[x]
-    end
+    (1..array_length).each { |x| result = yield result, self[x] }
     result
   end
 end
