@@ -1,3 +1,4 @@
+https://travis-ci.org/makersacademy/inject-challenge.svg?branch=master
 Inject Challenge (Rubyist Badge)
 ================
 
