@@ -19,7 +19,5 @@ class Array
       end
     end
   set[-1]  
-  end
-
-  
+  end  
 end
