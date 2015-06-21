@@ -23,6 +23,23 @@ describe Array do
     expect([10,2,2].michael_inject(:+)).to eq 14
    end
 
+   it 'work with an inital starting value and a block (division)' do
+    expect([2,2,2].michael_inject(30){|x,y| x / y}).to eq 3
+   end
+
+    it 'work with an inital starting value and a block (subtraction)' do
+    expect([20,3,2].michael_inject(30){|x,y| x - y}).to eq 5
+   end
+
+   it 'work with an inital starting value and a block (addition)' do
+    expect([20,3,2].michael_inject(30){|x,y| x + y}).to eq 55
+   end
+
+   it 'work with an inital starting value and a block (multiplication)' do
+    expect([20,3,2].michael_inject(3){|x,y| x * y}).to eq 360
+   end
+
+
  end
 
 end
