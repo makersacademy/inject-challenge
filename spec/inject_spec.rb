@@ -46,7 +46,7 @@ describe 'injection' do
     end
   end
 
-    context 'multiplication' do
+  context 'multiplication' do
 
     it 'works like inject' do
       a = [5, 6, 7, 8, 9, 10]
