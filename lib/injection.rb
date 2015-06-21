@@ -1,6 +1,6 @@
 class Array
 
-	def injection *args
+	def injection &block
     array = self.dup
     accumulator = array.shift
     if block_given?
