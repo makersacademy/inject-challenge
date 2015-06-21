@@ -15,7 +15,6 @@ module Inject
 
 	end
 
-
 end
 
 class Array

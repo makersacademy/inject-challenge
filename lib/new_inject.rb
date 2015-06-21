@@ -35,7 +35,7 @@ module New_inject
 		accum || memory
 	end
 
-xººend
+end
 
 
 
