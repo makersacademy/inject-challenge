@@ -1,6 +1,7 @@
 class Array
 
-  def injection(initial_value, operator)
+  def injection(operator)
+    if operator == :+
       result = self[0] + self[1]
       self[0] = result
       self[1] = self[2]
