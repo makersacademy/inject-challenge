@@ -55,6 +55,19 @@ describe Array do
       expect([25,3,2].michael_inject(100,:+)).to eq 130
     end
 
+    it 'should raise error when passed two symbols' do
+      expect{[25,3,2].michael_inject(:+,:+)}.to raise_error 'argument error'
+    end
+
+     it 'should raise error when passed two numbers' do
+      expect{[25,3,2].michael_inject(5,5){|x,y| x + y}}.to raise_error 'argument error'
+    end
+
+    it 'should raise error when passed symbol and number in wrong order' do
+      expect{[25,3,2].michael_inject(:+,5)}.to raise_error 'argument error'
+    end
+
+
 
   end
 
