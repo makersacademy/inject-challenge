@@ -13,7 +13,7 @@ describe Array do
       end
 
       it 'can multiply numbers together' do
-        expect([1, 2, 3, 4].injection { |acc, el| ac * el }).to eq 24
+        expect([1, 2, 3, 4].injection { |acc, el| acc * el }).to eq 24
       end
 
       it 'can minus numbers together' do
