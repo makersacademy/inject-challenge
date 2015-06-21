@@ -15,7 +15,7 @@ describe 'injection' do
     end
 
     it 'reassigns a[0] to the result of a[0] + a[1]' do
-      a = [5,6]
+      a = [5, 6]
       expect { a.injection(:+) }.to change { a[0] }.from(5).to(11)
     end
 
