@@ -1,0 +1,7 @@
+  def injection(num)
+    length = self.length
+    self[0..length].each do |item|
+      num = yield(num,item)
+    end
+    num
+  end
