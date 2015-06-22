@@ -18,7 +18,7 @@ Project involves rewrite the inject method for the Array class.
 - Reopen Array class
 - Research what the inject method actually does
 - Rewrite the inject method using an alternative name
-- 
+
 
 ## Still to complete/refactor
 - Gain a greater understanding of how the yield works
