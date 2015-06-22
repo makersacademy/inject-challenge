@@ -1,7 +1,6 @@
 class Array
 
   def injecty(default = 0)
-
     # accumulator set to default value or first item in array
     accumulator = default || self[0]
 
@@ -10,9 +9,7 @@ class Array
     end
 
     accumulator
-
   end
-
   # def injecty(default = 0, &block)
   #   accumulator = default || self[0]
   #   self.each do |iterated|
@@ -21,5 +18,4 @@ class Array
   # end
   #
   # injecty(6) { |iterated| accumulator = accumulator + iterated }
-
 end
