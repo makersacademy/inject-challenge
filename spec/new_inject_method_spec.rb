@@ -11,29 +11,29 @@ describe Array do
 
     it 'can add strings together' do
       expect(['welcome','to','makers'].christian_inject { |k, v| k + v }).
-      to eq "welcometomakers"
+        to eq "welcometomakers"
     end
 
     it 'can add numbers to an input' do
-      expect(test_array.christian_inject(10){ |k, v| k + v }).to eq 20
+      expect(test_array.christian_inject(10) { |k, v| k + v }).to eq 20
     end
   end
 
   context 'subtraction' do
     it 'can subtract numbers from the input' do
-      expect(test_array.christian_inject(30){ |k, v| k - v }).to eq 20
+      expect(test_array.christian_inject(30) { |k, v| k - v }).to eq 20
     end
   end
 
   context 'multiplication' do
     it 'can multiply the input' do
-      expect(test_array.christian_inject(5){ |k, v| k * v }).to eq 120
+      expect(test_array.christian_inject(5) { |k, v| k * v }).to eq 120
     end
   end
 
   context 'division' do
     it 'can divide the input' do
-      expect(test_array.christian_inject(120){ |k, v| k / v }).to eq 5
+      expect(test_array.christian_inject(120) { |k, v| k / v }).to eq 5
     end
   end
 end
