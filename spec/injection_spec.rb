@@ -59,5 +59,12 @@ describe Array do
           expect([5, 2].injection(:**)).to eq 25
         end
       end
+
+      context 'when given a an array of strings as an argument' do
+
+        it 'it will join them together to form a single string' do
+          expect(["hello", "world"].injection(:+)).to eq "helloworld"
+        end
+      end
   end
 end
