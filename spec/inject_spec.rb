@@ -28,12 +28,32 @@ describe Array do
       expect([5,5,5].my_inject(1) { |sum, next_number | sum + next_number }).to eq(16)
     end
 
+    it 'multiplies' do
+      expect([1,2,3,4].my_inject(1) {|product, n| product * n }).to eq (24)
+    end
+
     it 'handles array functions' do
-      array = [1, 2, 3, 4, 5, 6].inject([]) do |result, element|
+      array = [1, 2, 3, 4, 5, 6].my_inject([]) do |result, element|
         result << element.to_s if element % 2 == 0
         result
       end
       expect(array).to eq(["2", "4", "6"])
+    end
+
+    it 'finds longest word' do
+      longest = %w{ cat sheep bear }.my_inject do |memo,word|
+        memo.length > word.length ? memo : word
+      end
+      expect(longest).to eq("sheep")
+    end
+
+    it 'creates hashes' do
+      array = [['A', 'a'], ['B', 'b'], ['C', 'c']]
+      hash = array.my_inject({}) do |memo, (key, value)|
+        memo[key] = value
+        memo
+      end
+      expect(hash).to eq({'A' => 'a', 'B' => 'b', 'C' => 'c'})
     end
   end
 end
