@@ -1,5 +1,6 @@
 Inject Challenge (Rubyist Badge)
 ================
+https://travis-ci.org/adrianw1832/inject-challenge.svg?branch=master
 
 How I approached this
 ---------------------
