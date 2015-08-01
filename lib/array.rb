@@ -1,9 +1,8 @@
 class Array
   def inject_alt(arg = nil, &block)
     output = arg || first
-    (arg.nil? ? self[1..-1] : self).each do |element|
-      output = block.call(output, element)
-    end
+    array = (arg.nil? ? self[1..-1] : self)
+    array.each { |element| output = block.call(output, element) }
     output
   end
 
