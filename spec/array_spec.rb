@@ -7,5 +7,9 @@ describe "Array" do
       a = [1,2,3,4]
       expect(a.my_inject { |total, x| total + x } ).to eq 10
     end
+    it "works with adding strings together" do
+      a = ["a","b","c","d"]
+      expect(a.my_inject { |total, x| total + x } ).to eq "abcd"
+    end
   end
 end
