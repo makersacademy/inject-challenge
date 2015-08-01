@@ -47,7 +47,7 @@ describe Array do
       expect(longest).to eq("sheep")
     end
 
-    it 'creates hashes' do
+    it 'creates hash' do
       array = [['A', 'a'], ['B', 'b'], ['C', 'c']]
       hash = array.my_inject({}) do |memo, (key, value)|
         memo[key] = value
