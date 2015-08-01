@@ -24,5 +24,16 @@ describe Array do
       expect([2,3,4].my_inject{ |sum, number| sum - number }).to eq(subtract_result)
     end
 
+    it 'sums with setter' do
+      expect([5,5,5].my_inject(1) { |sum, next_number | sum + next_number }).to eq(16)
+    end
+
+    it 'handles array functions' do
+      array = [1, 2, 3, 4, 5, 6].inject([]) do |result, element|
+        result << element.to_s if element % 2 == 0
+        result
+      end
+      expect(array).to eq(["2", "4", "6"])
+    end
   end
 end
