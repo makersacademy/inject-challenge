@@ -2,7 +2,7 @@ require 'new_inject'
 
 describe Array do
   arr1 = [1, 2, 3, 4, 5]
-  arr2 = ["cat", "sheep", "bear"]
+  arr2 = ["cat", "sheep", "an", "bear"]
 
   it "can respond to new_inject" do
     expect(subject).to respond_to(:new_inject).with(1).argument
@@ -22,7 +22,7 @@ describe Array do
     end
 
     it "can find the shortest word" do
-      expect(arr2.new_inject { |m, w| m.length < w.length ? m : w }).to eq("cat")
+      expect(arr2.new_inject { |m, w| m.length < w.length ? m : w }).to eq("an")
     end
 
     it "can accept symbols" do
