@@ -17,7 +17,7 @@ class Array
         n += 1
       end
     end
-    return start
+    start
   end
 
   def yield_with_symbol(arr, initial, symbol)
@@ -26,6 +26,6 @@ class Array
       initial = initial.send(symbol, arr[n + 1])
       n += 1
     end
-    return initial
+    initial
   end
 end
