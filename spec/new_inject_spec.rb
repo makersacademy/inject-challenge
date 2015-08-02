@@ -9,20 +9,20 @@ describe Array do
   end
 
   describe "#new_inject" do
-    it "accepts an addition block and interates through elements to return a single value" do
-      expect(array_numbers.new_inject{ |a, b| a + b }).to eq(15)
+    it "accepts an addition block" do
+      expect(array_numbers.new_inject { |a, b| a + b }).to eq(15)
     end
 
-    it "accepts a multiplication block and interates through elements to return a single value" do
-      expect(array_numbers.new_inject{ |a, b| a * b }).to eq(120)
+    it "accepts a multiplication block" do
+      expect(array_numbers.new_inject { |a, b| a * b }).to eq(120)
     end
 
     it "can accept additional arguments" do
-      expect(array_numbers.new_inject(6){ |a, b| a + b }).to eq(21)
+      expect(array_numbers.new_inject(6) { |a, b| a + b }).to eq(21)
     end
 
     it "can find the shortest word" do
-      expect(array_words.new_inject{ |memo, word| memo.length < word.length ? memo : word }).to eq("cat")
+      expect(array_words.new_inject { |memo, word| memo.length < word.length ? memo : word }).to eq("cat")
     end
 
     it "can accept symbols" do
