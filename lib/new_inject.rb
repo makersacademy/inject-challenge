@@ -1,5 +1,5 @@
 class Array
-  def new_inject(*args, &block)
+  def new_inject(*args)
     n = 0
     if args.size == 1 && !block_given?
       start = self[0]
