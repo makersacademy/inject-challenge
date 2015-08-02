@@ -28,6 +28,10 @@ describe Array do
       expect([5,5,5].my_inject(1) { |sum, next_number | sum + next_number }).to eq(16)
     end
 
+    it 'subtracts with setter' do
+      expect([5,2].my_inject(0){ |sum, number| sum - number }).to eq(-7)
+    end
+
     it 'multiplies' do
       expect([1,2,3,4].my_inject(1) {|product, n| product * n }).to eq (24)
     end
