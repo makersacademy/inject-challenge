@@ -1,4 +1,4 @@
-![Travis CI Build Working]()
+![Travis CI Build Working](https://travis-ci.org/katylouise/inject-challenge.svg?branch=master)
 
 Inject Challenge
 ================
