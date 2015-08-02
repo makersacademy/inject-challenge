@@ -22,7 +22,7 @@ describe Array do
     end
 
     it "can find the shortest word" do
-      expect(array_words.new_inject { |memo, word| memo.length < word.length ? memo : word }).to eq("cat")
+      expect(array_words.new_inject { |m, w| m.length < w.length ? m : w }).to eq("cat")
     end
 
     it "can accept symbols" do
