@@ -12,7 +12,7 @@ describe Array do
     context "with a block" do
 
       it "injects plus into array and returns value" do
-      expect(subject.crush_down { |sum, n| sum + n }).to eq 45
+        expect(subject.crush_down { |sum, n| sum + n }).to eq 45
       end
 
       it "injects multiply into array and returns value" do
@@ -30,7 +30,9 @@ describe Array do
       end
 
       it "compares objects and returns value" do
-        expect((%w{ cat sheep bear }).crush_down { |memo, word| (memo.length > word.length) ? (memo) : (word) }).to eq "sheep"
+        expect((%w{ cat sheep bear }).crush_down do |memo, word|
+          (memo.length > word.length) ? (memo) : (word)
+        end).to eq "sheep"
       end
 
     end
@@ -65,7 +67,7 @@ describe Array do
     context "with a symbol" do
 
       it "injects plus into array and returns value" do
-      expect(subject.crush_down(:+)).to eq 45
+        expect(subject.crush_down(:+)).to eq 45
       end
 
       it "injects multiply into array and returns value" do
@@ -99,7 +101,6 @@ describe Array do
         expect(subject.crush_down(1, :+)).to eq 46
       end
 
-
       it "injects subtract into array and returns value" do
         arr = [5, 2]
         expect(arr.crush_down(10, :-)).to eq 3
@@ -122,7 +123,7 @@ describe Array do
       context "with a block" do
 
         it "injects plus into array and returns value" do
-        expect(subject.recursive_crush_down { |sum, n| sum + n }).to eq 45
+          expect(subject.recursive_crush_down { |sum, n| sum + n }).to eq 45
         end
 
         it "injects multiply into array and returns value" do
