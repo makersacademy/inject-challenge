@@ -2,10 +2,6 @@ require 'open_array'
 
 describe Array do
 
-  test_array = [2,3,4]
-  add_result = test_array.inject { |sum, next_number | sum + next_number }
-  subtract_result = test_array.inject { |sum, number| sum - number }
-
   describe '#my_inject' do
 
     it 'sums numbers' do
@@ -13,7 +9,7 @@ describe Array do
     end
 
     it 'sums more numbers' do
-      expect([2,3,4].my_inject{ |sum, next_number | sum + next_number }).to eq(add_result)
+      expect([2,3,4].my_inject{ |sum, next_number | sum + next_number }).to eq(9)
     end
 
     it 'subtracts numbers' do
@@ -21,7 +17,7 @@ describe Array do
     end
 
     it 'subtracts more numbers' do
-      expect([2,3,4].my_inject{ |sum, number| sum - number }).to eq(subtract_result)
+      expect([2,3,4].my_inject{ |sum, number| sum - number }).to eq(-5)
     end
 
     it 'sums with setter' do

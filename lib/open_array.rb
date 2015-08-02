@@ -12,5 +12,3 @@ class Array
   end
 end
 
-
-
