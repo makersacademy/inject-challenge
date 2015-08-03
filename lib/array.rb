@@ -1,7 +1,6 @@
 class Array
-  def fadi(&block)
-    element = self.first
-    self.shift if self.first == element
+  def fadi(element = self.shift, &block)
     self.each{|n| element = block.call(element,n) }
+    p element
   end
 end
