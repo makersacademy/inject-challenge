@@ -1,7 +1,7 @@
 class Array
 
   def my_inject(arg=nil,&block)
-    c = self[0].class
+    c = self[0].class == Float ? Fixnum : self[0].class
 
     fail "Array not usable" if !class_checker(c,self)
 
@@ -15,7 +15,7 @@ class Array
   end
 
   def class_checker(c, array)
-    array.each { |x| x.class == c ? true : (return false) }
+    array.each { |x| (x.class == Float ? Fixnum : x.class) == c ? true : (return false) }
   end
 
   def arg_setter(c,arg)
