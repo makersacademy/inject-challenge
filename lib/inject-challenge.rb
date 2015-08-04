@@ -8,15 +8,14 @@ class MyArray < Array
     return result
   end
 
-  def attempt_at_recursive_inject(i=0, result=nil, &function)
-    result ||= self[0] if result == nil
-    if i+1 == (self.length)
+  def attempt_at_recursive_inject(result=nil, &function)
+    result ||=  (result == nil ? self.shift : init)
+    if (self.length)==0
       return result
     else
-      element = self[i+1]
+      element = self.shift
       result = function.call(result, element)
-      i+=1
-      self.attempt_at_recursive_inject(i, result, &function)
+      self.attempt_at_recursive_inject(result, &function)
     end
   end
 
