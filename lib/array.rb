@@ -1,13 +1,22 @@
 class Array
 
-  def my_inject(accumulator)
-    yield(self.each, accumulator)
+  def my_inject(initial_value = nil)
+    if initial_value.nil?
+      value = self[0]
+      array = self[1..-1]
+    else
+      value = initial_value
+      array = self
+    end
+    array.each do |element|
+      value = yield(value, element)
+    end
+    value
   end
-
 end
 
-puts 'This is my inject'
-[1, 2].my_inject(6) { |element, result| p element, result }
-
-puts 'This is the ruby inject'
-p [1, 2, 3, 4].inject(1) { |element, result| p element, result }
+# Testing
+# puts 'This is my inject'
+# p [1, 2, 3, 4].my_inject(100) { |value, element| value / element }
+# puts 'This is Ruby\'s inject'
+# p [1, 2, 3, 4].inject(100) { |value, element| value / element }
