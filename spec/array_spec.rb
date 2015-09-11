@@ -9,6 +9,11 @@ describe Array do
       expect(array.mick_inject{ |sum, a| sum + a }).to eq 10
     end
 
+    it 'does accumulative multiplication of integers with inital value given' do
+      array = [2,4,6,8]
+      expect(array.mick_inject(3){ |tot, a| tot * a }).to eq 1152
+    end
+
   end
 
 end
