@@ -6,7 +6,7 @@ describe Array do
 
     it 'does accumulative addition of an array of integers' do
       array = [1,2,3,4]
-      expect(array.mick_inject{ |sum, a| sum + a })
+      expect(array.mick_inject{ |sum, a| sum + a }).to eq 10
     end
 
   end

@@ -15,3 +15,8 @@ class Array
   end
 
 end
+
+
+# p [1,2,3,4].inject{|sum,a| sum + a}
+
+# p [1,2,3,4].mick_inject{|sum,a| sum + a}
