@@ -14,6 +14,12 @@ describe Array do
       expect(array.mick_inject(3){ |tot, a| tot * a }).to eq 1152
     end
 
+    it 'works for combining array of strings' do
+      array = ["Friday", "nights", "were", "made", "for", "ruby!"]
+      expect(array.mick_inject{ |str, a| str + " #{a}" }).to eq "Friday nights were made for ruby!"
+
+    end
+
   end
 
 end
