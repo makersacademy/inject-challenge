@@ -17,7 +17,6 @@ describe Array do
     it 'works for combining array of strings' do
       array = ["Friday", "nights", "were", "made", "for", "ruby!"]
       expect(array.mick_inject{ |str, a| str + " #{a}" }).to eq "Friday nights were made for ruby!"
-
     end
 
   end
