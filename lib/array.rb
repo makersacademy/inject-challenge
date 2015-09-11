@@ -1,7 +1,7 @@
 class Array
 
   def mick_inject(initial = nil, &block)
-    if initial == nil
+    if !initial
       initial = self[0]
       shift
       mick_inject(initial, &block)
@@ -10,13 +10,11 @@ class Array
       each do |a|
         accumulator = block.call(accumulator, a)
       end
+      accumulator
     end
-    accumulator
   end
 
 end
 
 
-# p [1,2,3,4].inject{|sum,a| sum + a}
 
-# p [1,2,3,4].mick_inject{|sum,a| sum + a}
