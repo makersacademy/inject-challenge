@@ -1,15 +1,11 @@
 class Array
 
-  def new_inject(&block)
-    result = []
+  def new_inject(arg, &block)
+    result = arg
     self.each do |element|
-      result << block.call(element)
+      result = block.call(result, element)
     end
     result
   end
 
 end
-
-# ary1 = [1,2,3,4]
-# array2 = ary1.new_inject{|x| x*x}
-# p array2
