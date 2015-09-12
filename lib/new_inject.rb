@@ -11,7 +11,7 @@ class Array
 
   def recursive_inject! *number, &block
     self.unshift number[0] unless number == []
-    while self.length>1 do
+    while self.length>1 
       self[1] =  block.call [self[0], self[1]]
       self.shift
       self.recursive_inject!(&block)
