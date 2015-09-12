@@ -10,6 +10,6 @@ class Array
 
 end
 
-ary1 = [1,2,3,4]
-array2 = ary1.new_inject{|x| x*x}
-p array2
+# ary1 = [1,2,3,4]
+# array2 = ary1.new_inject{|x| x*x}
+# p array2
