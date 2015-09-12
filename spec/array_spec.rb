@@ -24,6 +24,11 @@ describe Array do
       expect(array.mick_inject{ |acc, a| acc + a }).to eq nil
     end
 
+    it 'works for arrays containing nil values' do
+      array = [nil,nil,nil,nil]
+      expect(array.mick_inject{|acc, x| acc = !x}).to be true
+    end
+
   end
 
 end
