@@ -7,3 +7,4 @@ class Array
     end
     result
   end
+end
