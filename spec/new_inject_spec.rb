@@ -70,6 +70,12 @@ describe Array do
       expect(result).to eq(norm_inj_res)
     end
 
+    it 'sums an array of integers when passed no arguments' do
+      result = array1.recursion_inject() {|obj, ele| obj + ele}
+      norm_inj_res = array1.inject(0) {|obj, ele| obj + ele}
+      expect(result).to eq(norm_inj_res)
+    end
+
     it 'sums an array of integers and does not change the original array' do
       array1_original = array1.dup
       result = array1.recursion_inject(0) {|obj, ele| obj + ele}

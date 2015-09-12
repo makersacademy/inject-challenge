@@ -9,13 +9,15 @@ Instructions
 Current Status
 -----
 
-* Completed writing a new inject equivalent method for Array class - using self.each.
+* Completed writing a new inject equivalent method for Array class using self.each.
 * Added 5 tests to see if the new inject return same object as the usual ruby inject.
+* Completed writing a new inject equivalent method for Array class using recursion.
+* Added 5 tests to see if the recursion inject return same object as the usual ruby inject.
 
 To Do
 -----
 
-* Write another version of the inject method for Array class - using recursion.
+* refactor the new methods.
 
 
 [![Build Status](https://travis-ci.org/makersacademy/inject-challenge.svg?branch=master)](https://travis-ci.org/makersacademy/inject-challenge)

@@ -17,15 +17,27 @@ class Array
     end
   end
 
-  def recursion_inject arg, &block
-    self_copy = self.dup
-    result = arg
-    element = self_copy.delete_at(0)
-    result = block.call(result, element)
-    if self_copy == []
-      return result
+  def recursion_inject *arg, &block
+    if arg == []
+      self_copy = self.dup
+      result = self_copy.delete_at(0)
+      element = self_copy.delete_at(0)
+      result = block.call(result, element)
+      if self_copy == []
+        return result
+      else
+        return self_copy.recursion_inject result, &block
+      end
     else
-      return self_copy.recursion_inject result, &block
+      self_copy = self.dup
+      result = arg[0]
+      element = self_copy.delete_at(0)
+      result = block.call(result, element)
+      if self_copy == []
+        return result
+      else
+        return self_copy.recursion_inject result, &block
+      end
     end
   end
 
