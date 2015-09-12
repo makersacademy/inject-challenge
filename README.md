@@ -9,5 +9,5 @@ Instructions
 Status
 -----
 
-[![Build Status](https://travis-ci.org/makersacademy/inject-challenge.svg?branch=master)](https://travis-ci.org/makersacademy/inject-challenge)
-[![Coverage Status](https://coveralls.io/repos/makersacademy/inject-challenge/badge.png)](https://coveralls.io/r/makersacademy/inject-challenge)
+[![Build Status](https://travis-ci.org/chweeks/inject-challenge.svg?branch=master)](https://travis-ci.org/chweeks/inject-challenge.svg?branch=master)
+[![Coverage Status](https://travis-ci.org/chweeks/inject-challenge.svg?branch=master)](https://travis-ci.org/chweeks/inject-challenge.svg?branch=master)
