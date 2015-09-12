@@ -26,7 +26,7 @@ describe Array do
 
     it 'works for arrays containing nil values' do
       array = [nil,nil,nil,nil]
-      expect(array.mick_inject{|acc, x| acc = !x}).to be true
+      expect(array.mick_inject{|acc, x| !x}).to be true
     end
 
   end

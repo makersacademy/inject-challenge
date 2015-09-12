@@ -4,7 +4,7 @@ class Array
 
     return nil if empty_array?
 
-    if initial == nil
+    if initial.nil?
       initial = self[0]
       shift
       accumulate(initial, &block)
