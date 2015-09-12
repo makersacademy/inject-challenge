@@ -2,7 +2,7 @@ require 'new_inject'
 
 describe Array do
   it 'reponds to the inject! method' do
-    expect(Array.new).to respond_to(:inject!)
+    expect([]).to respond_to(:inject!)
   end
 
   it 'sums an array of integers 'do
@@ -10,11 +10,10 @@ describe Array do
     expect(array.inject!(0) {|result, element| result + element}).to eq(10)
   end
 
-  it 'matches the interal inject method this block' do
-    array=[9,2,5,4]
-    comparison=array.inject(){|result, element| element*result**2}
-
-    expect(array.inject!(){|result, element| element*result**2}). to eq(comparison)
+  it 'matches the interal inject method for this block' do
+    array=[9,2,5]
+    comparison=array.inject{|result, element| element*result}
+    expect(array.inject!{|result, element| element*result}). to eq(comparison)
   end
 
 
