@@ -1,32 +1,31 @@
 class Array
 
   def mick_inject(initial = nil, &block)
-    return nil if count == 0
-    if all?{ |a| !a }
-      accumulator = initial
-      each do |a|
-        accumulator = block.call(accumulator, a)
-      end
-      return accumulator
-    end
 
-    if !initial
+    return nil if empty_array?
+
+    if initial == nil
       initial = self[0]
       shift
-      mick_inject(initial, &block)
+      accumulate(initial, &block)
     else
-      accumulator = initial
-      each do |a|
-        accumulator = block.call(accumulator, a)
-      end
-      accumulator
+      accumulate(initial, &block)
     end
+
+  end
+
+  def accumulate(initial, &block)
+    accumulator = initial
+    each do |a|
+      accumulator = block.call(accumulator, a)
+    end
+    accumulator
+  end
+
+  def empty_array?
+    count == 0
   end
 
 end
 
-array = [nil,nil,nil,nil]
 
-p array.count
-p array.inject{|acc, x| acc = !x}
-p array.mick_inject{|acc, x| acc = !x}
