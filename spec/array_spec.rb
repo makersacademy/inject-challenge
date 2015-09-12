@@ -19,6 +19,11 @@ describe Array do
       expect(array.mick_inject{ |str, a| str + " #{a}" }).to eq "Friday nights were made for ruby!"
     end
 
+    it 'returns nil or empty arrays' do
+      array = []
+      expect(array.mick_inject{ |acc, a| acc + a }).to eq nil
+    end
+
   end
 
 end
