@@ -10,4 +10,3 @@ Status
 -----
 
 [![Build Status](https://travis-ci.org/chweeks/inject-challenge.svg?branch=master)](https://travis-ci.org/chweeks/inject-challenge.svg?branch=master)
-[![Coverage Status](https://travis-ci.org/chweeks/inject-challenge.svg?branch=master)](https://travis-ci.org/chweeks/inject-challenge.svg?branch=master)
