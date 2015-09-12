@@ -12,8 +12,8 @@ class Array
           array[i] = yield(number[0] , element)
         else
           array[i] = yield([array[i-1], element])
-        end
       end
+    end
     return array.last
   end
 end
