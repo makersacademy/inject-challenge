@@ -94,6 +94,11 @@ describe Array do
       end
       expect(result).to eq(norm_inj_res)
     end
+
+    it 'correct Coveralls not picking up recursive steps correctly' do
+      result = [].recursion_inject(){|obj,ele| obj}
+      expect(result).to eq(nil)
+    end
   end
 
 end
