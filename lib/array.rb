@@ -1,6 +1,7 @@
 class Array
 
   def mick_inject(initial = nil, &block)
+    return nil if count == 0
     if !initial
       initial = self[0]
       shift
