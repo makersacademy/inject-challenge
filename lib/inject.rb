@@ -1,11 +1,16 @@
 class Array
 
-  def double_inject(first_value, &block)
-    new_value = first_value
-    each do |element|
-      block.call(first_value, element)
-      new_value += element
+  def double_inject(initial, &block)
+    array = []
+    each do |el|
+      array << el
     end
-    new_value
+    i = 1
+    new = block.call(initial, array[0])
+    while i < array.length
+      new = block.call(new, array[i])
+      i += 1
+    end
+    new
   end
 end
