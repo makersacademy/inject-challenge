@@ -5,6 +5,8 @@ describe Array do
   subtract = Proc.new { |acc, elem| acc - elem }
   multiply = Proc.new{ |x,y| x * y }
   divide = Proc.new{ |x,y| x / y }
+  longest = Proc.new{ |x,y| x.length > y.length ? x : y}
+  
   it 'can add the sum of array' do
     expect([1,2,3,4].my_inject(&add)).to eq(10)
   end
@@ -28,5 +30,8 @@ describe Array do
   end
   it 'can divide arrays from a starting point' do
     expect([1,2,3,4].my_inject(100, &divide)).to eq(4)
+  end
+  it 'can compare sizes of objects' do
+    expect(["Hello","What"].my_inject(&longest)).to eq("Hello")
   end
 end
