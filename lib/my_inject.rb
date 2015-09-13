@@ -20,4 +20,18 @@ class MyArray < Array
     end
   end
 
+  def my_inject_rec (initial = self.shift, sym=nil, &block)
+    if !block && (initial.is_a? Symbol)
+      sym = initial
+      initial = self.shift
+    end
+    if block
+      size == 0 ? initial : initial = my_inject_rec(block.call(initial, self.shift), &block)
+    elsif sym
+      size == 0 ? initial : initial = my_inject_rec(initial.send(sym, self.shift), sym)
+    else
+      fail "No block or symbol given, or block and sym given, or smth esle is wrong!"
+    end
+  end
+
 end
