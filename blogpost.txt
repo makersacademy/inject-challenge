@@ -1,0 +1,27 @@
+What are blocks?
+Blocks are a set of ruby instructions or statements which can be grouped together and passed to any ruby method (it's up to the method as to whether or not the block is actually invoked. Blocks can take arguments and return values but they are not required to. There are two ways of writing blocks in ruby:
+1. The multiline way where the block of code is written between do and end.
+2. The inline way where the block is specified between curly braces {}
+	 
+What are procs and lambdas?
+Instead of having to type out a block every time we want to use it, we may wrap up blocks in objects called Procs (short for Procedures). This allows use to reuse blocks again and again without the unnecessary code repetition, in keeping with the DRY heuristic. Unlike blocks, Procs can be called directly using the .call method. Lambdas also provide a way of saving and storing blocks. They work in much the same was as Procs, but with two key differences:
+1. A lambda will check the number of arguments passed in and will throw an error if the number of arguments is incorrect. A Proc will simply ignore unexpected arguments and assign nil to any missing arguments.
+2. When a block is invoked in a method, a returns a value immediately without going back to the calling method. When a lambda returns, it passes control back to the calling method.  
+
+Examples of procs and lambdas
+To illustrate these differences, consider the following example.
+
+def testing_procs
+  proc = Proc.new { return "Apples" } 
+  proc.call
+  "Oranges"
+end
+
+def testing_lambdas
+  lambda = lambda { return "Apples" }
+  lambda.call
+  "Oranges"
+end
+
+Calling the testing_procs method returns "Apples", whereas calling the testing_lambdas method returns oranges. This is because when the proc is called in the testing_procs method, it returns the value "Apples" immediately without going back to the testing_procs method. In the testint_lambdas method, control is passed back to the method after the lambda is called, implicitly returning "Oranges".
+
