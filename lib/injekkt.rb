@@ -1,6 +1,6 @@
 class Array
 
-  def injekt(*args, &block)
+  def injekkt(*args, &block)
 
     len = args.length
     message = "wrong number of arguments (#{len} for 0..2)"
@@ -15,15 +15,16 @@ class Array
 
     self.unshift(args.pop) unless args.empty?
 
-    memo = self.shift
+    do_injekkt(self, block)
 
-    until self.empty? do
-      obj = self.shift
-      memo = block.call(memo, obj)
-    end
+ end
 
-   memo
+ private
 
+ def do_injekkt(array, block)
+   return array.first if array.length <= 1
+   obj = array.pop
+   block.call(do_injekkt(array, block), obj)
  end
 
 end
