@@ -2,7 +2,8 @@
 
 ## Inject Challenge
 
- ### inject
+### inject
+
 *verb*
 
 to put among or between others *"injected one more comment into the body of the text"*
@@ -15,9 +16,7 @@ source: [Merriam-Webster](http://www.merriam-webster.com/thesaurus/inject)
 ### The goal of this exercise is to rewrite the Ruby Inject Method.
 
 
-My version of the Ruby inject method will be called `sandwich_in` and it should do everything that `inject` does:
-
-1.
+My version of the Ruby inject method is called `sandwich_in` and it should do everything that `inject` does to an array.
 
 
 
