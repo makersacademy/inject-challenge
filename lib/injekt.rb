@@ -4,12 +4,12 @@ class Array
 
     len = args.length
     message = "wrong number of arguments (#{len} for 0..2)"
-    fail ArgumentError.new(message) if len >= 3
+    fail(ArgumentError, message) if len >= 3
 
     if !block_given? || len == 2
       sym = args.pop
       message = "#{sym} is not a symbol nor a string"
-      fail TypeError.new(message) unless sym.is_a?(Symbol) || sym.is_a?(String)
+      fail(TypeError, message) unless sym.is_a?(Symbol) || sym.is_a?(String)
       block = proc { |memo, obj| memo.send(sym, obj)}
     end
 
