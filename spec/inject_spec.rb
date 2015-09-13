@@ -2,7 +2,7 @@ describe Array do
 
   context 'when injected with three arguments' do
     context 'and a block' do
-      block = proc { |memo, obj| memo = memo + obj }
+      block = proc { |memo, obj| memo += obj }
       it 'raises an argument error for []' do
         expect{[].inject(0, 1, :+, &block)}.to raise_error{ArgumentError}
       end
@@ -17,7 +17,7 @@ describe Array do
   context 'when injected with a block' do
 
     context 'that does +' do
-      block = proc { |memo, obj| memo = memo + obj }
+      block = proc { |memo, obj| memo += obj }
       context 'with no arguments' do
         it 'returns nil for []' do
           expect([].inject(&block)).to eq nil
@@ -76,7 +76,7 @@ describe Array do
     end
 
     context 'that does *' do
-      block = proc { |memo, obj| memo = memo * obj }
+      block = proc { |memo, obj| memo *= obj }
       context 'with no arguments' do
         it 'returns nil for []' do
           expect([].inject(&block)).to eq nil
