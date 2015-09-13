@@ -1,4 +1,7 @@
+[![Build Status](https://travis-ci.org/anitacanita/inject-challenge.svg)](https://travis-ci.org/anitacanita/inject-challenge)
+
 ## Inject Challenge
+
 
 Rewrite the Ruby Inject Method
 
