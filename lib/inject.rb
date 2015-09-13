@@ -1,42 +1,15 @@
 class Array
-  def my_inject(symbol,*start)
-    # if block_given?
-    if start.empty?
-      case symbol
-      when :+
-        start = 0
-      when :-
-        start = 0
-      when :*
-        start = 1
-      when :/
-        start = 1
+  def my_inject(x=nil)
+    if x == nil
+      x ||= self.first
+      self[1..-1].each do |y|
+        x = yield(x,y)
       end
     else
-      start = start[0]
-    end
-
-    case symbol
-      when :+
-        self.each do |x|
-        start += x
-      end
-      when :-
-        self.each do |x|
-        start -= x
-      end
-      when :*
-        self.each do |x|
-        start *= x
-      end
-      when :/
-        self.each do |x|
-        start /= x
+      self[0..-1].each do |y|
+        x = yield(x,y)
       end
     end
-    start
-    # else
-    #   puts "Hello"
-    # end
+    x
   end
 end
