@@ -10,7 +10,7 @@ describe Array do
       expect(array.sandwich_in 5).to eq(5)
     end
 
-    it 'if given 0 as an argument, sums all numbers in a array and returns 10' do
+    it 'if given 0 as an argument, sums all numbers in array and returns 10' do
       expect(array.sandwich_in(0) { |acc, n| acc + n}).to eq 10
     end
 
@@ -32,7 +32,9 @@ describe Array do
 
     it 'finds the longest word in an array' do
       words = %w(crocodile bear giraffe lion )
-      expect(words.sandwich_in { |acc, word| acc.length > word.length ? acc : word}).to eq('crocodile')
+      expect(words.sandwich_in do |acc, word|
+        acc.length > word.length ? acc : word
+      end).to eq('crocodile')
     end
   end
 end
