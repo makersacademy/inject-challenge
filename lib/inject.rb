@@ -11,7 +11,7 @@ class Array
     self[start..-1].each do |x|
       num = yield(num, x)
     end
-    return num
+    num
   end
 
 end
