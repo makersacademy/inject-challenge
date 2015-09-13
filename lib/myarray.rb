@@ -1,4 +1,4 @@
-class My_array
+class MyArray
 
 
 
@@ -6,7 +6,7 @@ class My_array
    acc = array
    acc.each do |num|
    result = yield(acc, num)
-  end
+   end
 
  end
 
@@ -18,5 +18,5 @@ class My_array
 end
 
 
-array = My_array.new
-array.my_inject([1,2,3,4])
+# array = My_array.new
+# array.my_inject([1,2,3,4])
