@@ -1,27 +1,22 @@
 class ArrayWrapper
 
   def initialize(*items)
-  @items = items.flatten
+    @items = items.flatten
   end
 
   def each(&block)
-  @items.each(&block)
-  self
+    @items.each(&block)
+    self
   end
 
-  def ==(other)
-  @items == other
+  def inject_this(accumulator, &block)
+    each do |element|
+      accumulator = block.call(accumulator, element)
+    end
+    accumulator
   end
-
-  def inject_new(accumulator, &block)
-  each do |element|
-    accumulator = block.call(accumulator, element)
-  end
-  accumulator
-  end
-
 end
 
-array = [1,2,3,4]
+array = ArrayWrapper.new(1, 2, 3, 4)
 
-print array.inject_new(0) { |accumulator, element| accumulator + element }
+print array.inject_this(0) { |accumulator, element| accumulator + element }
