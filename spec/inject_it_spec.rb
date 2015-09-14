@@ -16,6 +16,18 @@ describe Array do
     expect(subject.inject_it(array, 2) {|result, item| result * item} ).to eq(outcome)
   end
 
+  it "should divide numbers with one argument" do
+    array = [1, 2, 3, 4]
+    outcome = array.inject(2) {|result, item| result / item}
+    expect(subject.inject_it(array, 2) {|result, item| result / item} ).to eq(outcome)
+  end
+
+  it "should deduct numbers with one argument" do
+    array = [1, 2, 3, 4]
+    outcome = array.inject(2) {|result, item| result - item}
+    expect(subject.inject_it(array, 2) {|result, item| result - item} ).to eq(outcome)
+  end
+
   it "should add all the words together" do
     array = ["hello", "my", "friend"]
     outcome = array.inject("awesome") {|result, item| result + item}
