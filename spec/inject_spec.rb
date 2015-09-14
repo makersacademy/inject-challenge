@@ -30,12 +30,5 @@ describe Array do
           to eq('ABCDEFG')
       end
     end
-
-    context "When using symbols" do
-      it "adds up all the numbers" do
-        expect([5,6,7,8,9,10].double_inject(0, :+)).
-          to eq(45)
-      end
-    end
   end
 end
