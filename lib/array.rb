@@ -16,7 +16,6 @@ class Array
   end
 end
 
-
     # case acc
     # when Symbol
     #   return my_inject { |method, param| method.send(acc, param) }

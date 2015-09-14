@@ -3,13 +3,13 @@ require 'array'
 describe Array do
 
   let(:array) {[1,2,3,4]}
-
-  add = Proc.new { |acc, elem| acc + elem }
-  sub = Proc.new { |acc, elem| acc - elem }
-  mul = Proc.new { |acc, elem| acc * elem }
-  div = Proc.new { |acc, elem| acc / elem }
-  doub = Proc.new { |acc, elem| acc << 2*elem }
-  squ = Proc.new { |acc, elem| acc << elem * elem}
+  let(:add) {proc { |acc, elem| acc + elem }}
+  let(:sub) {proc { |acc, elem| acc - elem }}
+  let(:mul) {proc { |acc, elem| acc * elem }}
+  let(:div) {proc { |acc, elem| acc / elem }}
+  let(:doub) {proc { |acc, elem| acc << 2*elem }}
+  let(:squ) {proc { |acc, elem| acc << elem * elem }}
+  let(:long) {proc { |acc, elem| acc.length > elem.length ? acc : elem }}
 
   describe "#my_inject" do
     context "uses procs without a parameter" do
@@ -44,6 +44,10 @@ describe Array do
         expect(array.my_inject &squ).to eq(result)
       end
 
+      it "will act like inject when comparing length" do
+        expect(["Morning", "Makers"].my_inject(&long)).to eq "Morning"
+      end
+
     end
 
     context "uses procs with a parameter" do
@@ -71,9 +75,9 @@ end
 
     # context 'using symbols for tesing integers' do
     #
-    #   it 'will act like inject with addition' do
-    #    expect(array.my_inject(:+)).to eq(10)
-    #   end
+      # it 'will act like inject with addition' do
+      #  expect([1,2,3,4].my_inject(:+)).to eq(10)
+      # end
     #
     #   it 'will act like inject with subtraction' do
     #    expect(array.my_inject(:-)).to eq(-8)
