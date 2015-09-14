@@ -12,7 +12,7 @@ describe Array do
   let(:long) {proc { |acc, elem| acc.length > elem.length ? acc : elem }}
 
   describe "#my_inject" do
-    context "uses procs without a parameter" do
+    context "uses procs for testing integers without a parameter" do
 
       it "will act like inject with addition" do
         result = array.my_inject { |acc, elem| acc + elem }
@@ -26,7 +26,7 @@ describe Array do
 
       it "will act like inject with multiplication" do
         result = array.my_inject { |acc, elem| acc * elem }
-        expect(array.my_inject &mul).to eq(24)
+        expect(array.my_inject &mul).to eq(result)
       end
 
       it "will act like inject with divsion" do
@@ -44,13 +44,11 @@ describe Array do
         expect(array.my_inject &squ).to eq(result)
       end
 
-      it "will act like inject when comparing length" do
-        expect(["Morning", "Makers"].my_inject(&long)).to eq "Morning"
-      end
-
     end
 
-    context "uses procs with a parameter" do
+
+
+    context "uses procs for testing integers with a parameter" do
 
       it "will act like inject with addition" do
         expect(array.my_inject(10, &add)).to eq(20)
@@ -69,6 +67,19 @@ describe Array do
       end
 
     end
+
+    context "uses proc's for testing strings" do
+
+      it "will act like inject with addition" do
+        expect(["Morning", " Makers"].my_inject(&add)).to eq "Morning Makers"
+      end
+
+      it "will act like inject when comparing length" do
+        expect(["Morning", "Makers"].my_inject(&long)).to eq "Morning"
+      end
+
+    end
+
   end
 
 end
