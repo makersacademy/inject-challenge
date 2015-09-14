@@ -17,6 +17,6 @@ class ArrayWrapper
   end
 end
 
-array = ArrayWrapper.new(1, 2, 3, 4)
+array = ArrayWrapper.new(1, 2, 3, 4,5)
 
 print array.inject_this(0) { |accumulator, element| accumulator + element }
