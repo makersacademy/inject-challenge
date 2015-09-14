@@ -1,25 +1,19 @@
 Inject Challenge (Rubyist Badge)
 ================
 
-Instructions
--------
+### blog post
 
-* Feel free to use google, your notes, books, etc but work on your own
-* You must submit a pull request to this repo with your challenge solution by 9am Monday morning
+http://bat020.github.io/blocks-procs-lambdas/
 
-Task
------
+### spec files
 
-* Fill out your learning plan self review for the week: https://github.com/makersacademy/learning_plan
-* Spend an hour composing a blog post that answers the following questions: `What are blocks, procs and lambdas? Provide code examples to show the differences between each of them. What makes procs and lambdas different to methods?` 
-* Fork this repo
-* Ensure you have the 'bundle' gem by running the command 'gem install bundle'. Then run the command 'bundle' in the project directory to ensure you have all the gems you need for this.
-* Reopen the Array class or subclass it.
-* Rewrite the inject method. Write a test for it first. Don't worry about returning an enumerator, assume a block is always given
-* Name your method differently (that is, not inject() or subclass Array) because rspec uses inject() internally, so the tests will fail with weird messages unless your implementation of inject is perfect.
-* If you would like a challenge, rewrite inject using two approaches: using iterators and using recursion but it’s not required to pass.
-* Submit pull request with your solution
+**injekt_spec.rb** contains 45 tests of `Array#injekt` checking various combinations of blocks and arguments. It's organised to run through them with a similar logic to the actual method.
 
+**inject_spec.rb** contains exactly the same 45 tests but with `Array#inject` rather than the rewritten version. This demonstrates that `injekt` and `inject` do the same thing, return the same errors etc.
+
+### lib files
+
+**injekt.rb** contains the code for the `injekt` method. There are two solutions, an iterative one and a recursive one. Just comment out or uncomment the relevant lines of code to switch between them. 
 
 [![Build Status](https://travis-ci.org/makersacademy/inject-challenge.svg?branch=master)](https://travis-ci.org/makersacademy/inject-challenge)
 [![Coverage Status](https://coveralls.io/repos/makersacademy/inject-challenge/badge.png)](https://coveralls.io/r/makersacademy/inject-challenge)
