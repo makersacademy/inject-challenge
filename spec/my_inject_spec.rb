@@ -50,6 +50,12 @@ describe MyArray do
       expect{subject.my_inject(6)}.to raise_error "ERROR!"
     end
 
+    it "does not change the initial array" do
+      subject.push(1,2,3,4,5)
+      subject.my_inject {|a,b| a+b}
+      expect(subject).to eq([1,2,3,4,5])
+    end
+
   end
 
   describe "#my_inject_rec" do
@@ -98,6 +104,12 @@ describe MyArray do
     it "raises an error if no block or symbol provided" do
       subject.push(1,2,3,4,5)
       expect{subject.my_inject_rec(6)}.to raise_error "ERROR!"
+    end
+
+    it "does not change the initial array" do
+      subject.push(1,2,3,4,5)
+      subject.my_inject_rec {|a,b| a+b}
+      expect(subject).to eq([1,2,3,4,5])
     end
 
   end
