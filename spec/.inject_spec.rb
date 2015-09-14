@@ -1,194 +1,192 @@
-require 'injekt'
-
 describe Array do
 
   block = proc { |memo, obj| memo += obj }
   blockm = proc { |memo, obj| memo *= obj }
   blockz = proc { zzz }
 
-  context 'when injekted with three arguments' do
+  context 'when injected with three arguments' do
     it 'raises an argument error' do
-      expect{[].injekt(0, 1, :+)}.to raise_error ArgumentError
+      expect{[].inject(0, 1, :+)}.to raise_error ArgumentError
     end
   end
 
-  context 'when injekted with no block' do
+  context 'when injected with no block' do
     context 'and no arguments' do
       it 'returns nil with []' do
-        expect([].injekt).to eq nil
+        expect([].inject).to eq nil
       end
       it 'returns :dummy with [:dummy]' do
-        expect([:dummy].injekt).to eq :dummy
+        expect([:dummy].inject).to eq :dummy
       end
       it 'raises a local jump error with [4,3,2,1]' do
-        expect{[4,3,2,1].injekt}.to raise_error LocalJumpError
+        expect{[4,3,2,1].inject}.to raise_error LocalJumpError
       end
     end
     context "and one argument that isn't a symbol" do
       it 'raises a type error' do
-        expect{[].injekt(999)}.to raise_error TypeError
+        expect{[].inject(999)}.to raise_error TypeError
       end
     end
     context "and two arguments, 5 and a non-symbol" do
       it 'raises a type error' do
-        expect{[].injekt(5, 999)}.to raise_error TypeError
+        expect{[].inject(5, 999)}.to raise_error TypeError
       end
     end
     context 'and one argument that is an undefined symbol' do
       it 'returns nil for []' do
-        expect([].injekt(:zzz)).to eq nil
+        expect([].inject(:zzz)).to eq nil
       end
       it 'returns :dummy for [:dummy]' do
-        expect([:dummy].injekt(:zzz)).to eq :dummy
+        expect([:dummy].inject(:zzz)).to eq :dummy
       end
       it 'raises a no method error for [4,3,2,1]' do
-        expect{[4,3,2,1].injekt(:zzz)}.to raise_error NoMethodError
+        expect{[4,3,2,1].inject(:zzz)}.to raise_error NoMethodError
       end
     end
     context 'and two arguments, 5 and an undefined symbol' do
       it 'returns 5 for []' do
-        expect([].injekt(5, :zzz)).to eq 5
+        expect([].inject(5, :zzz)).to eq 5
       end
       it 'raises a no method error for [321]' do
-        expect{[321].injekt(5, :zzz)}.to raise_error NoMethodError
+        expect{[321].inject(5, :zzz)}.to raise_error NoMethodError
       end
     end
     context 'and one argument, :+' do
       it 'returns nil for []' do
-        expect([].injekt(:+)).to eq nil
+        expect([].inject(:+)).to eq nil
       end
       it 'returns :dummy for [:dummy]' do
-        expect([:dummy].injekt(:+)).to eq :dummy
+        expect([:dummy].inject(:+)).to eq :dummy
       end
       it 'returns 10 for [4,3,2,1]' do
-        expect([4,3,2,1].injekt(:+)).to eq 10
+        expect([4,3,2,1].inject(:+)).to eq 10
       end
       it "returns 'dog' for ['d','o','g']" do
-        expect(['d','o','g'].injekt(:+)).to eq 'dog'
+        expect(['d','o','g'].inject(:+)).to eq 'dog'
       end
     end
     context 'and one argument, :*' do
       it 'returns 24 for [4,3,2,1]' do
-        expect([4,3,2,1].injekt(:*)).to eq 24
+        expect([4,3,2,1].inject(:*)).to eq 24
       end
       it "raises a type error for ['d','o','g']" do
-        expect{['d','o','g'].injekt(:*)}.to raise_error TypeError
+        expect{['d','o','g'].inject(:*)}.to raise_error TypeError
       end
     end
     context 'and two arguments, 5 and :+' do
       it 'returns 5 for []' do
-        expect([].injekt(5, :+)).to eq 5
+        expect([].inject(5, :+)).to eq 5
       end
       it 'returns 326 for [321]' do
-        expect([321].injekt(5, :+)).to eq 326
+        expect([321].inject(5, :+)).to eq 326
       end
       it 'returns 15 for [4,3,2,1]' do
-        expect([4,3,2,1].injekt(5, :+)).to eq 15
+        expect([4,3,2,1].inject(5, :+)).to eq 15
       end
       it "raises a type error for ['d','o','g']" do
-        expect{['d','o','g'].injekt(5, :+)}.to raise_error TypeError
+        expect{['d','o','g'].inject(5, :+)}.to raise_error TypeError
       end
     end
   end
 
-  context 'when injekted with a block' do
+  context 'when injected with a block' do
     context 'and two arguments, 5 and a non-symbol' do
       it 'raises a type error' do
-        expect{[].injekt(5, 999, &block)}.to raise_error TypeError
+        expect{[].inject(5, 999, &block)}.to raise_error TypeError
       end
     end
     context 'and two arguments, 5 and an undefined symbol' do
       it 'returns 5 for []' do
-        expect([].injekt(5, :zzz, &block)).to eq 5
+        expect([].inject(5, :zzz, &block)).to eq 5
       end
       it 'raises a no method error for [321]' do
-        expect{[321].injekt(5, :zzz, &block)}.to raise_error NoMethodError
+        expect{[321].inject(5, :zzz, &block)}.to raise_error NoMethodError
       end
     end
     context 'and two arguments, 5 and :*' do
       it 'returns 5 for []' do
-        expect([].injekt(5, :*, &block)).to eq 5
+        expect([].inject(5, :*, &block)).to eq 5
       end
       it 'returns 1605 for [321]' do
-        expect([321].injekt(5, :*, &block)).to eq 1605
+        expect([321].inject(5, :*, &block)).to eq 1605
       end
       it 'returns 120 for [4,3,2,1]' do
-        expect([4,3,2,1].injekt(5, :*, &block)).to eq 120
+        expect([4,3,2,1].inject(5, :*, &block)).to eq 120
       end
       it "raises a type error for ['d','o','g']" do
-        expect{['d','o','g'].injekt(5, :*, &block)}.to raise_error TypeError
+        expect{['d','o','g'].inject(5, :*, &block)}.to raise_error TypeError
       end
     end
     context "and two arguments, 'X' and :*" do
       it "returns 'XXXXXX' for [3,2,1]" do
-        expect([3,2,1].injekt('X', :*, &block)).to eq 'XXXXXX'
+        expect([3,2,1].inject('X', :*, &block)).to eq 'XXXXXX'
       end
       it "raises a type error for ['d','o','g']" do
-        expect{['d','o','g'].injekt('X', :*, &block)}.to raise_error TypeError
+        expect{['d','o','g'].inject('X', :*, &block)}.to raise_error TypeError
       end
     end
   end
 
-  context 'when injekted with a block' do
+  context 'when injected with a block' do
     context 'that uses undefined methods' do
       context 'with no arguments' do
         it 'returns nil for []' do
-          expect([].injekt(&blockz)).to eq nil
+          expect([].inject(&blockz)).to eq nil
         end
         it 'returns :dummy for [:dummy]' do
-          expect([:dummy].injekt(&blockz)).to eq :dummy
+          expect([:dummy].inject(&blockz)).to eq :dummy
         end
         it 'raises a no method error for [4,3,2,1]' do
-          expect{[4,3,2,1].injekt(&blockz)}.to raise_error NameError
+          expect{[4,3,2,1].inject(&blockz)}.to raise_error NameError
         end
       end
       context 'with one argument 5' do
         it 'returns nil for []' do
-          expect([].injekt(5, &blockz)).to eq 5
+          expect([].inject(5, &blockz)).to eq 5
         end
         it 'raises a name error for [99]' do
-          expect{[99].injekt(5, &blockz)}.to raise_error NameError
+          expect{[99].inject(5, &blockz)}.to raise_error NameError
         end
       end
     end
     context 'that does addition/concatenation' do
       context 'with no arguments' do
         it 'returns nil for []' do
-          expect([].injekt(&block)).to eq nil
+          expect([].inject(&block)).to eq nil
         end
         it 'returns :dummy for [:dummy]' do
-          expect([:dummy].injekt(&block)).to eq :dummy
+          expect([:dummy].inject(&block)).to eq :dummy
         end
         it 'returns 10 for [4,3,2,1]' do
-          expect([4,3,2,1].injekt(&block)).to eq 10
+          expect([4,3,2,1].inject(&block)).to eq 10
         end
         it "returns 'dog' for ['d','o','g']" do
-          expect(['d','o','g'].injekt(&block)).to eq 'dog'
+          expect(['d','o','g'].inject(&block)).to eq 'dog'
         end
       end
       context 'with one argument 5' do
         it 'returns 5 for []' do
-          expect([].injekt(5, &block)).to eq 5
+          expect([].inject(5, &block)).to eq 5
         end
         it 'returns 104 for [99]' do
-          expect([99].injekt(5, &block)).to eq 104
+          expect([99].inject(5, &block)).to eq 104
         end
         it 'returns 15 for [4,3,2,1]' do
-          expect([4,3,2,1].injekt(5, &block)).to eq 15
+          expect([4,3,2,1].inject(5, &block)).to eq 15
         end
         it "raises a type error for ['d','o','g']" do
-          expect{['d','o','g'].injekt(5, &block)}.to raise_error TypeError
+          expect{['d','o','g'].inject(5, &block)}.to raise_error TypeError
         end
       end
       context "with one argument 'woof'" do
         it "returns 'woofdog' for ['d','o','g']" do
-          expect(['d','o','g'].injekt('woof', &block)).to eq 'woofdog'
+          expect(['d','o','g'].inject('woof', &block)).to eq 'woofdog'
         end
       end
     end
     context 'that does multiplication' do
       it "raises type error for ['d','o','g']" do
-        expect{['d','o','g'].injekt(&blockm)}.to raise_error{TypeError}
+        expect{['d','o','g'].inject(&blockm)}.to raise_error{TypeError}
       end
     end
   end
