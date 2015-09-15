@@ -37,23 +37,31 @@ class MyArray < Array
     end
 
     if block
-      if size == index
-        initial
-      else
-        initial = block.call(initial, self[index])
-        my_inject_rec(initial,sym=nil,index+1, &block)
-      end
-
+      inject_with_block_rec(initial, index, &block)
     elsif sym
-      if size == index
-        initial
-      else
-        initial = initial.send(sym, self[index])
-        my_inject_rec(initial, sym, index+1)
-      end
-
+      inject_with_sym_rec(initial, sym, index)
     else
       fail "ERROR!"
+    end
+  end
+
+  private
+
+  def inject_with_block_rec(initial,index=0,&block)
+    if size == index
+      initial
+    else
+      initial = block.call(initial, self[index])
+      inject_with_block_rec(initial,index+1, &block)
+    end
+  end
+
+  def inject_with_sym_rec(initial, sym, index=0)
+    if size == index
+      initial
+    else
+      initial = initial.send(sym, self[index])
+      inject_with_sym_rec(initial, sym, index+1)
     end
   end
 
