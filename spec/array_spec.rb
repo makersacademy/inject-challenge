@@ -29,6 +29,12 @@ describe Array do
       expect(array.mick_inject{|acc, x| !x}).to be true
     end
 
+    it 'doesn\'t change the state of the original array' do
+      array = [1,2,3,4]
+      array.mick_inject{ |sum, a| sum + a }
+      expect(array).to eq [1,2,3,4]
+    end
+
   end
 
 end
