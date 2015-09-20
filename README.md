@@ -1,3 +1,4 @@
+[![Coverage Status](https://coveralls.io/repos/Harryandrew/inject-challenge/badge.svg?branch=master&service=github)](https://coveralls.io/github/Harryandrew/inject-challenge?branch=master)
 [![Code Climate](https://codeclimate.com/github/Harryandrew/inject-challenge/badges/gpa.svg)](https://codeclimate.com/github/Harryandrew/inject-challenge)
 [![Build Status](https://travis-ci.org/makersacademy/inject-challenge.svg?branch=master)](https://travis-ci.org/makersacademy/inject-challenge)
 
