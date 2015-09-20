@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/github/Harryandrew/inject-challenge/badges/gpa.svg)](https://codeclimate.com/github/Harryandrew/inject-challenge)
+[![Build Status](https://travis-ci.org/makersacademy/inject-challenge.svg?branch=master)](https://travis-ci.org/makersacademy/inject-challenge)
 
 
 Inject Challenge (Rubyist Badge)
