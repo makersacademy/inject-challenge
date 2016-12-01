@@ -10,8 +10,6 @@ Instructions
 Task
 -----
 
-* Fill out your learning plan self review for the week: https://github.com/makersacademy/learning_plan
-* Spend an hour composing a blog post that answers the following questions: `What are blocks, procs and lambdas? Provide code examples to show the differences between each of them. What makes procs and lambdas different to methods?` 
 * Fork this repo
 * Ensure you have the 'bundle' gem by running the command 'gem install bundle'. Then run the command 'bundle' in the project directory to ensure you have all the gems you need for this.
 * Reopen the Array class or subclass it.
