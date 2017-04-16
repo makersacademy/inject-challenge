@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/andygout/inject-challenge.svg?branch=master)](https://travis-ci.org/andygout/inject-challenge)
+[![Coverage Status](https://coveralls.io/repos/andygout/inject-challenge/badge.png)](https://coveralls.io/r/andygout/inject-challenge)
+
 Inject Challenge (Rubyist Badge)
 ================
 
@@ -17,7 +20,3 @@ Task
 * Name your method differently (that is, not inject() or subclass Array) because rspec uses inject() internally, so the tests will fail with weird messages unless your implementation of inject is perfect.
 * If you would like a challenge, rewrite inject using two approaches: using iterators and using recursion but it’s not required to pass.
 * Submit pull request with your solution
-
-
-[![Build Status](https://travis-ci.org/makersacademy/inject-challenge.svg?branch=master)](https://travis-ci.org/makersacademy/inject-challenge)
-[![Coverage Status](https://coveralls.io/repos/makersacademy/inject-challenge/badge.png)](https://coveralls.io/r/makersacademy/inject-challenge)
