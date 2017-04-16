@@ -1,6 +1,11 @@
 Inject Challenge (Rubyist Badge)
 ================
 
+Benny's Notes
+-------
+
+* I think everything should be working fine, although it is clear that there is a lot of refactoring to be done, I did not have the time to do this unfortunately.
+
 Instructions
 -------
 
