@@ -1,5 +1,11 @@
 Inject Challenge (Rubyist Badge)
 ================
+[![Build Status](https://travis-ci.org/adrianw1832/inject-challenge.svg?branch=master)](https://travis-ci.org/adrianw1832/inject-challenge)
+
+How I approached this
+---------------------
+
+I started off without considering the initial value since it would make things more difficult. I thought that if I could get the basic function implemented, then it wouldn't be too difficult to add that in. The recursive version was not bad at all once I finished the iterative version.
 
 Instructions
 -------
