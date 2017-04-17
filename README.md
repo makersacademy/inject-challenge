@@ -21,3 +21,6 @@ Task
 
 [![Build Status](https://travis-ci.org/makersacademy/inject-challenge.svg?branch=master)](https://travis-ci.org/makersacademy/inject-challenge)
 [![Coverage Status](https://coveralls.io/repos/makersacademy/inject-challenge/badge.png)](https://coveralls.io/r/makersacademy/inject-challenge)
+
+
+Hi, sorry, my work here is pathetic.  As per other README, i had a bad combination of technical and mental health problems this weekend and completely failed to achieve anything.  I'm sorry and will just try and get on with learning rather than beating myself up.
